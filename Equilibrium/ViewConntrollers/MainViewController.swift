@@ -91,8 +91,6 @@ class MainViewController: UICollectionViewController {
             Player.defaultPlayer().audior?.stop()
         }
     }
-    
-    
 }
 
 

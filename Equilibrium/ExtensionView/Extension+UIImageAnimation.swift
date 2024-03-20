@@ -16,8 +16,6 @@ extension UIView {
         //pulse.autoreverses = true
         pulse.repeatCount = count
         layer.add(pulse, forKey: "transform.scale")
-        
-        
     }
     
     func breath(times: Int){
@@ -63,9 +61,6 @@ extension UIView {
                 rotate.toValue = -360
                 self.layer.add(rotate, forKey: "transform.rotation")
             }
-            
         }
-        
-        
     }
 

@@ -51,7 +51,6 @@ final class BreathViewController: UIViewController {
             sender.setTitle("STOP", for: .normal)
         }
     }
-    
 }
 
 // MARK: - ColorDelegate
@@ -81,8 +80,7 @@ extension BreathViewController{
             red: CGFloat(settingColorViewPoint.red),
             green: CGFloat(settingColorViewPoint.green),
             blue: CGFloat(settingColorViewPoint.blue),
-            alpha: 1)
-        
+            alpha: 1)        
     }
 }
 
