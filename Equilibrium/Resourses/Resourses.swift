@@ -18,11 +18,12 @@ enum Resourses{
         case mandala = "Mandala Meditation"
         case showImage = "Calming Pictures"
         case fireGif = "Fire medittation"
+        case antiStress = "Anti Stress Training"
         case about = "About App"
         
     }
     enum Images {
-        static let imagesMain = ["Breath", "m2", "image", "fire", "about"]
+        static let imagesMain = ["Breath", "m2", "image", "fire", "anti","about"]
         static let mandalaImages = [
             "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10",
             "m11", "m12", "m13", "m14", "m15"

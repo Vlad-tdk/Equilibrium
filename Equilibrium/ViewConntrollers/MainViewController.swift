@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainViewController: UICollectionViewController {
     
@@ -76,10 +77,17 @@ class MainViewController: UICollectionViewController {
             case .mandala: performSegue(withIdentifier: "mandala", sender: nil)
             case .showImage: performSegue(withIdentifier: "image", sender: nil)
             case .fireGif: performSegue(withIdentifier: "FairImageMeditation", sender: nil)
+            case .antiStress: showAntiStressView()
             case .about: performSegue(withIdentifier: "about", sender: nil)
                 
             }
         }
+    func showAntiStressView() {
+        let antiStressView = AntiStressView()
+        let hostingController = UIHostingController(rootView: antiStressView)
+        navigationController?.pushViewController(hostingController, animated: true)
+    }
+
     
     @IBAction func playStarted(_ sender: UIButton) {
         if sender.titleLabel?.text == "Play Music"{

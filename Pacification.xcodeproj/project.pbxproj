@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,8 @@
 		F5A523872AAB25F5005B57B4 /* soundsOfTheForest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F5A523862AAB25F5005B57B4 /* soundsOfTheForest.mp3 */; };
 		F5AA04F22AA8C737006356AA /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AA04F12AA8C737006356AA /* StorageManager.swift */; };
 		F5AA04F62AA8DF42006356AA /* ColorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AA04F52AA8DF42006356AA /* ColorsModel.swift */; };
+		F5B4DF802CCD591700E6263E /* ParticleEffectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B4DF7F2CCD591700E6263E /* ParticleEffectModel.swift */; };
+		F5B4DF822CCD594900E6263E /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B4DF812CCD594900E6263E /* Particle.swift */; };
 		F5C6D34A2ABEE59100604981 /* Extension+UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C6D3492ABEE59100604981 /* Extension+UIAlert.swift */; };
 		F5D45A292AAF32BA00E9CBB2 /* Resourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D45A282AAF32BA00E9CBB2 /* Resourses.swift */; };
 		F5D45A2B2AAF55D600E9CBB2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D45A2A2AAF55D600E9CBB2 /* MainViewController.swift */; };
@@ -68,6 +70,8 @@
 		F5A523862AAB25F5005B57B4 /* soundsOfTheForest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundsOfTheForest.mp3; sourceTree = "<group>"; };
 		F5AA04F12AA8C737006356AA /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F5AA04F52AA8DF42006356AA /* ColorsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsModel.swift; sourceTree = "<group>"; };
+		F5B4DF7F2CCD591700E6263E /* ParticleEffectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEffectModel.swift; sourceTree = "<group>"; };
+		F5B4DF812CCD594900E6263E /* Particle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
 		F5C6D3492ABEE59100604981 /* Extension+UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIAlert.swift"; sourceTree = "<group>"; };
 		F5D45A282AAF32BA00E9CBB2 /* Resourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resourses.swift; sourceTree = "<group>"; };
 		F5D45A2A2AAF55D600E9CBB2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Equilibrium/ViewConntrollers/MainViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -81,6 +85,10 @@
 		F5E255DC2ACD7991001095CA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F5F98DB82A2F366C00D56ED4 /* Extension+UIImageAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageAnimation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F5B4DF7C2CCD52AA00E6263E /* SwiftUIView */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SwiftUIView; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F56734C22A23CDEB0001E658 /* Frameworks */ = {
@@ -130,6 +138,7 @@
 		F56734C72A23CDEB0001E658 /* Equilibrium */ = {
 			isa = PBXGroup;
 			children = (
+				F5B4DF7C2CCD52AA00E6263E /* SwiftUIView */,
 				F5AA04F42AA8DF18006356AA /* Models */,
 				F5AA04F32AA8C73F006356AA /* Managers */,
 				F5AA04EF2AA8C63A006356AA /* Player */,
@@ -231,6 +240,8 @@
 			children = (
 				F5AA04F52AA8DF42006356AA /* ColorsModel.swift */,
 				F5D45A302AAFA5E000E9CBB2 /* Models.swift */,
+				F5B4DF7F2CCD591700E6263E /* ParticleEffectModel.swift */,
+				F5B4DF812CCD594900E6263E /* Particle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +272,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F5B4DF7C2CCD52AA00E6263E /* SwiftUIView */,
 			);
 			name = Equilibrium;
 			packageProductDependencies = (
@@ -341,6 +355,7 @@
 				F50389D12ABB109500F99AEA /* Extension+UIImage+Gif.swift in Sources */,
 				F5D45A2F2AAF5C2D00E9CBB2 /* MainViewCell.swift in Sources */,
 				F51747B92A2F806D0080BC2C /* SettingBreathViewController.swift in Sources */,
+				F5B4DF802CCD591700E6263E /* ParticleEffectModel.swift in Sources */,
 				F52587E62A2E2F01002499AC /* ImageViewController.swift in Sources */,
 				F5D45A2B2AAF55D600E9CBB2 /* MainViewController.swift in Sources */,
 				F5D45A312AAFA5E000E9CBB2 /* Models.swift in Sources */,
@@ -353,6 +368,7 @@
 				F56734CB2A23CDEB0001E658 /* SceneDelegate.swift in Sources */,
 				F5E255DD2ACD7991001095CA /* AboutViewController.swift in Sources */,
 				F55F6E7B2ABCBFCA00A47278 /* FireViewCell.swift in Sources */,
+				F5B4DF822CCD594900E6263E /* Particle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XKWG4AGNW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Equilibrium/App/Info.plist;
@@ -521,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = none.Equilibrium;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -540,7 +556,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = XKWG4AGNW6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Equilibrium/App/Info.plist;
@@ -558,7 +574,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = none.Equilibrium;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
