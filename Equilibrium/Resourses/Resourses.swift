@@ -8,11 +8,7 @@ import UIKit
 import Foundation
 
 enum Resourses{
-    enum Colors {
-        static let backgroundColorCell = UIColor(hexString: "#bfd4ad")
-        static let backgroundColorMain = UIColor(hexString: "#e3e1b8")
-        static let colorFontCell = UIColor(hexString: "597824")
-    }
+    
     enum UserAction: String, CaseIterable {
         case breath = "Breathing Training"
         case mandala = "Mandala Meditation"
