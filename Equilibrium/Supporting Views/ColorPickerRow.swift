@@ -7,12 +7,18 @@
 
 import SwiftUI
 
+// MARK: - Color Picker Row
 struct ColorPickerRow: View {
     let title: String
     @Binding var color: Color
+    let icon: String
     
     var body: some View {
         HStack {
+            Image(systemName: icon)
+                .foregroundColor(.cyan)
+                .frame(width: 24)
+            
             Text(title)
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white)
@@ -22,6 +28,5 @@ struct ColorPickerRow: View {
             ColorPicker("", selection: $color)
                 .labelsHidden()
         }
-        .padding(.horizontal)
     }
 }

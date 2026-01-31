@@ -10,11 +10,11 @@ import SwiftUI
 struct ParameterSlider: View {
     @Binding var value: CGFloat
     let range: ClosedRange<CGFloat>
-    let title: String
+    let title: LocalizedStringKey
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(title): \(value, specifier: "%.2f")")
+            (Text(title) + Text(": ") + Text(value, format: .number.precision(.fractionLength(2))))
                 .foregroundColor(.white)
             Slider(value: $value, in: range)
         }

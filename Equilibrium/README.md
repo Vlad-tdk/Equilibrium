@@ -83,9 +83,10 @@ Equilibrium/
 
 ## Известные моменты
 
-1. **GIF анимации**: В FireMeditationView используется placeholder для GIF. Нужно либо:
-   - Интегрировать SDWebImageSwiftUI
-   - Использовать существующий UIImage+Gif extension через UIViewRepresentable
+1. **GIF анимации**: В FireMeditationView используется placeholder для GIF. 
+- Используем существующий UIImage+Gif extension через UIViewRepresentable
+  Возможно стоит:
+- Интегрировать SDWebImageSwiftUI
 
 2. **Музыка**: AudioPlayerManager использует AVAudioPlayer. Убедитесь что:
    - Файл soundsOfTheForest.mp3 есть в Bundle

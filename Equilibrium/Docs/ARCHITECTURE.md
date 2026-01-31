@@ -70,32 +70,32 @@ Equilibrium/
 
 ```swift
 ┌─────────────────────────────────────────┐
-│                 View                     │
+│                 View                    │
 │  (SwiftUI - Declarative UI)             │
-│  - MainView                              │
-│  - BreathView                            │
-│  - MandalaView                           │
+│  - MainView                             │
+│  - BreathView                           │
+│  - MandalaView                          │
 └──────────────┬──────────────────────────┘
                │ @StateObject
                │ @Binding
                │ @Published
                ▼
 ┌─────────────────────────────────────────┐
-│             ViewModel                    │
-│  (ObservableObject)                      │
-│  - BreathViewModel                       │
-│  - MandalaViewModel                      │
-│  - ParticleEffectModel                   │
-│  - Manages state & business logic        │
+│             ViewModel                   │
+│  (ObservableObject)                     │
+│  - BreathViewModel                      │
+│  - MandalaViewModel                     │
+│  - ParticleEffectModel                  │
+│  - Manages state & business logic       │
 └──────────────┬──────────────────────────┘
                │ Uses
                ▼
 ┌─────────────────────────────────────────┐
-│              Model                       │
-│  (Data structures)                       │
-│  - ColorModel                            │
-│  - Particle                              │
-│  - MeditationType                        │
+│              Model                      │
+│  (Data structures)                      │
+│  - ColorModel                           │
+│  - Particle                             │
+│  - MeditationType                       │
 └─────────────────────────────────────────┘
 ```
 
