@@ -9,10 +9,10 @@ import SwiftUI
 
 // MARK: - Enhanced Slider
 struct EnhancedSlider: View {
-    let title: String
+    let title: LocalizedStringResource
     @Binding var value: CGFloat
     let range: ClosedRange<CGFloat>
-    let unit: String
+    let unit: LocalizedStringResource
     let icon: String
     let color: Color
     
@@ -24,7 +24,7 @@ struct EnhancedSlider: View {
                     .foregroundColor(color)
                     .frame(width: 20)
                 
-                Text(title)
+                Text(String(localized: title))
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white.opacity(0.9))
                 

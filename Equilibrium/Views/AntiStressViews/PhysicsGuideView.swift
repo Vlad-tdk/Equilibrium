@@ -24,73 +24,73 @@ struct PhysicsGuideView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 24) {
                         guideSection(
-                            title: "Force Strength",
-                            icon: "bolt.fill",
+                            title: L10n.PhysicsGuideView.titleForceStrength,
+                            icon: Icons.boltFill,
                             color: .yellow,
-                            description: "Controls how strongly particles react to touch.",
+                            description: L10n.PhysicsGuideView.descriptionControlsHowStronglyParticlesReactToTouch,
                             examples: [
-                                "Low (5-15): Gentle, subtle movements",
-                                "Medium (15-30): Balanced, natural feel",
-                                "High (30-50): Strong, dramatic reactions"
+                                String(localized: L10n.PhysicsGuideView.exampleLowGentleSubtleMovements),
+                                String(localized: L10n.PhysicsGuideView.exampleMediumBalancedNaturaFeel),
+                                String(localized: L10n.PhysicsGuideView.exampleHighStrongDramaticReactions)
                             ]
                         )
                         
                         guideSection(
-                            title: "Interaction Radius",
-                            icon: "circle.dotted",
+                            title: L10n.PhysicsGuideView.titleInteractionRadius,
+                            icon: Icons.circleDotted,
                             color: .orange,
-                            description: "The distance at which particles start reacting.",
+                            description: L10n.PhysicsGuideView.descriptionTheDistanceAtWhichParticleStartReacting,
                             examples: [
-                                "Small (20-60): Precise, localized effect",
-                                "Medium (60-120): Balanced spread",
-                                "Large (120-200): Wide, flowing movements"
+                                String(localized: L10n.PhysicsGuideView.exampleSmallPreciselocalizedeffect),
+                                String(localized: L10n.PhysicsGuideView.exampleMediumBalancedSpread),
+                                String(localized: L10n.PhysicsGuideView.exampleLargeWideFlowingMovements)
                             ]
                         )
                         
                         guideSection(
-                            title: "Velocity Factor",
-                            icon: "speedometer",
+                            title: L10n.PhysicsGuideView.titleVelocityFactor,
+                            icon: Icons.speedometer,
                             color: .blue,
-                            description: "How quickly particles move.",
+                            description: L10n.PhysicsGuideView.descriptionHowQuicklyParticlesMove,
                             examples: [
-                                "Slow (0.1-0.8): Dreamy, floating",
-                                "Normal (0.8-1.5): Natural speed",
-                                "Fast (1.5-3.0): Quick, energetic"
+                                String(localized: L10n.PhysicsGuideView.exampleSlowDreamyFloating),
+                                String(localized: L10n.PhysicsGuideView.exampleNormalNaturalSpeed),
+                                String(localized: L10n.PhysicsGuideView.exampleFastQuickEnergetic)
                             ]
                         )
                         
                         guideSection(
-                            title: "Friction",
-                            icon: "wind",
+                            title: L10n.PhysicsGuideView.titleFriction,
+                            icon: Icons.breath,
                             color: .indigo,
-                            description: "How quickly particles slow down.",
+                            description: L10n.PhysicsGuideView.descriptionHowQuicklyParticlesSlowDown,
                             examples: [
-                                "Low (0.5-0.7): Slides far, fluid",
-                                "Medium (0.7-0.85): Balanced damping",
-                                "High (0.85-0.95): Stops quickly, stable"
+                                String(localized: L10n.PhysicsGuideView.exampleLowSlidesFarFluid),
+                                String(localized: L10n.PhysicsGuideView.exampleMediumBalancedDamping),
+                                String(localized: L10n.PhysicsGuideView.exampleHighStopsQuicklyStable)
                             ]
                         )
                         
                         guideSection(
-                            title: "Spring Strength",
-                            icon: "arrow.triangle.2.circlepath",
+                            title: L10n.PhysicsGuideView.titleSpringStrength,
+                            icon: Icons.arrowTriangleCirclepath,
                             color: .pink,
-                            description: "How strongly particles return to origin.",
+                            description: L10n.PhysicsGuideView.descriptionHowStronglyParticlesReturnToOrigin,
                             examples: [
-                                "Weak (0.01-0.05): Slow return, drifts",
-                                "Medium (0.05-0.08): Balanced restoration",
-                                "Strong (0.08-0.15): Quick snap back"
+                                String(localized: L10n.PhysicsGuideView.exampleWeakSlowReturnDrifts),
+                                String(localized: L10n.PhysicsGuideView.exampleMediumBalancedRestoration),
+                                String(localized: L10n.PhysicsGuideView.exampleStrongQuickSnapBack)
                             ]
                         )
                     }
                     .padding()
                 }
             }
-            .navigationTitle("Physics Guide")
+            .navigationTitle(L10n.PhysicsGuideView.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
+                    Button(L10n.Common.done) {
                         dismiss()
                     }
                     .foregroundColor(.cyan)
@@ -100,10 +100,10 @@ struct PhysicsGuideView: View {
     }
     
     private func guideSection(
-        title: String,
+        title: LocalizedStringResource,
         icon: String,
         color: Color,
-        description: String,
+        description: LocalizedStringResource,
         examples: [String]
     ) -> some View {
         VStack(alignment: .leading, spacing: 12) {

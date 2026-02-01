@@ -66,8 +66,32 @@ enum L10n {
     }
     enum AntiStressView{
         static var title: LocalizedStringKey = "anti_stress.title"
-        static var InteractionRadius: LocalizedStringKey = "anti_stress.interactionRadius"
-        static var ParticleVelocityFactor: LocalizedStringKey = "anti_stress.particleVelocityFactor"
+        static var physicsControls: LocalizedStringKey = "anti_stress.physics_controls"
+        static var resetToDefaults: LocalizedStringKey = "anti_stress.reset_to_defaults"
+        static var vsSectionHeaderTitle: LocalizedStringResource = "anti_stress.vs_section_header_title"
+        static var vsEnchasedParticleSize: LocalizedStringResource = "anti_stress.vs_enchased_particle_size"
+        static var vsEnchasedUnitPt: LocalizedStringResource = "anti_stress.vs_enchased_unit_pt"
+        static var vsEnchasedSpacing: LocalizedStringResource = "anti_stress.vs_enchased_spacing"
+        static var fsSectionHeaderTitle: LocalizedStringResource = "anti_stress.fs_section_header_title"
+        static var fsEnchasedInteractionRadius: LocalizedStringResource = "anti_stress.fs_enchased_interaction_radius"
+        static var fsEnchasedUnitPt: LocalizedStringResource = "anti_stress.fs_enchased_unit_pt"
+        static var fsEnchasedForceStrength: LocalizedStringResource = "anti_stress.fs_enchased_force_strength"
+        static var fsEnchasedUnitN: LocalizedStringResource = "anti_stress.fs_enchased_unit_n"
+        static var fsEnchasedForceSmoothness: LocalizedStringResource = "anti_stress.fs_enchased_force_smoothness"
+        
+        static var psSectionHeaderTitle: LocalizedStringResource = "anti_stress.ps_section_header_title"
+        
+        static var psEnchasedVelocityFactor: LocalizedStringResource = "anti_stress.ps_enchased_velocity_factor"
+        static var psEnchasedUnitX: LocalizedStringResource = "anti_stress.ps_enchased_unit_x"
+        
+        static var psEnchasedFriction: LocalizedStringResource = "anti_stress.ps_enchased_friction"
+        static var psEnchasedSpringStrength: LocalizedStringResource = "anti_stress.ps_enchased_spring_strength"
+        static var psEnchasedUnitK: LocalizedStringResource = "anti_stress.ps_enchased_unit_k"
+        static var presetsSectionSectionHeaderTitle: LocalizedStringResource = "anti_stress.presets.section_header_title"
+        static var presetButtonTitleGentle: LocalizedStringResource = "anti_stress.presets.button_title_gentle"
+        static var presetButtonTitleDynamic: LocalizedStringResource = "anti_stress.presets.button_title_dynamic"
+        static var presetButtonTitleFluid: LocalizedStringResource = "anti_stress.presets.button_title_fluid"
+        static var presetButtonTitleBouncy: LocalizedStringResource = "anti_stress.presets.button_title_bouncy"
     }
     enum BreathSettingsView{
         static var breathTitle: LocalizedStringKey = "breath_settings.breathTitle"
@@ -210,6 +234,35 @@ enum L10n {
         static var skipButtonTitle: LocalizedStringResource = "onboarding.skip"
         static var nextButtonTitle: LocalizedStringResource = "onboarding.next"
         static var startedButtonTitle: LocalizedStringResource = "onboarding.started"
+    }
+    
+    enum PhysicsGuideView{
+        static var title: LocalizedStringResource = "physics_guide.title"
+        static var titleForceStrength: LocalizedStringResource = "physics_guide.title_force_strength"
+        static var descriptionControlsHowStronglyParticlesReactToTouch: LocalizedStringResource = "physics_guide.description_controls_how_strongly_particles_react_to_touch"
+        static var exampleLowGentleSubtleMovements: LocalizedStringResource = "physics_guide.example_low_gentle_subtle_movements"
+        static var exampleMediumBalancedNaturaFeel: LocalizedStringResource = "physics_guide.example_medium_balanced_natura_feel"
+        static var exampleHighStrongDramaticReactions: LocalizedStringResource = "physics_guide.example_high_strong_dramatic_reactions"
+        static var titleInteractionRadius: LocalizedStringResource = "physics_guide.title_interaction_radius"
+        static var descriptionTheDistanceAtWhichParticleStartReacting: LocalizedStringResource = "physics_guide.description_the_distance_at_which_particle_start_reacting"
+        static var exampleSmallPreciselocalizedeffect: LocalizedStringResource = "physics_guide.example_small_preciselocalizedeffect"
+        static var exampleMediumBalancedSpread: LocalizedStringResource = "physics_guide.example_medium_balanced_spread"
+        static var exampleLargeWideFlowingMovements: LocalizedStringResource = "physics_guide.example_large_wide_flowing_movements"
+        static var titleVelocityFactor: LocalizedStringResource = "physics_guide.title_velocity_factor"
+        static var descriptionHowQuicklyParticlesMove: LocalizedStringResource = "physics_guide.description_how_quickly_particles_move"
+        static var exampleSlowDreamyFloating: LocalizedStringResource = "physics_guide.example_slow_dreamy_floating"
+        static var exampleNormalNaturalSpeed: LocalizedStringResource = "physics_guide.example_normal_natural_speed"
+        static var exampleFastQuickEnergetic: LocalizedStringResource = "physics_guide.example_fast_quick_energetic"
+        static var titleFriction: LocalizedStringResource = "physics_guide.title_friction"
+        static var descriptionHowQuicklyParticlesSlowDown: LocalizedStringResource = "physics_guide.description_how_quickly_particles_slow_down"
+        static var exampleLowSlidesFarFluid: LocalizedStringResource = "physics_guide.example_low_slides_far_fluid"
+        static var exampleMediumBalancedDamping: LocalizedStringResource = "physics_guide.example_medium_balanced_damping"
+        static var exampleHighStopsQuicklyStable: LocalizedStringResource = "physics_guide.example_high_stops_quickly_stable"
+        static var titleSpringStrength: LocalizedStringResource = "physics_guide.title_spring_strength"
+        static var descriptionHowStronglyParticlesReturnToOrigin: LocalizedStringResource = "physics_guide.description_how_strongly_particles_return_to_origin"
+        static var exampleWeakSlowReturnDrifts: LocalizedStringResource = "physics_guide.example_weak_slow_return_drifts"
+        static var exampleMediumBalancedRestoration: LocalizedStringResource = "physics_guide.example_medium_balanced_restoration"
+        static var exampleStrongQuickSnapBack: LocalizedStringResource = "physics_guide.example_strong_quick_snap_back"
     }
     
     enum RatingPromptView{

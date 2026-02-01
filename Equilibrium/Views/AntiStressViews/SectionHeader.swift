@@ -9,14 +9,14 @@ import SwiftUI
 
 // MARK: - Section Header
 struct SectionHeader: View {
-    let title: String
+    let title: LocalizedStringResource
     let icon: String
     
     var body: some View {
         HStack {
             Image(systemName: icon)
                 .foregroundColor(.cyan)
-            Text(title)
+            Text(String(localized: title))
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.white)
             Spacer()

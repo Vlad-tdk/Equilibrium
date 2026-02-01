@@ -118,7 +118,7 @@ struct AntiStressView: View {
             
             Spacer()
             
-            Text("Anti-Stress")
+            Text(L10n.AntiStressView.title)
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
             
@@ -160,7 +160,7 @@ struct AntiStressView: View {
             VStack(spacing: 20) {
                 // Title
                 HStack {
-                    Text("Physics Controls")
+                    Text(L10n.AntiStressView.physicsControls)
                         .font(.system(size: 24, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     
@@ -196,7 +196,7 @@ struct AntiStressView: View {
                 }) {
                     HStack {
                         Image(systemName: Icons.arrowCounterclockwise)
-                        Text("Reset to Defaults")
+                        Text(L10n.AntiStressView.resetToDefaults)
                     }
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.white)
@@ -225,22 +225,22 @@ struct AntiStressView: View {
     // MARK: - Visual Section
     private var visualSection: some View {
         VStack(spacing: 12) {
-            SectionHeader(title: "Visual", icon: Icons.sparkles)
+            SectionHeader(title: L10n.AntiStressView.vsSectionHeaderTitle, icon: Icons.sparkles)
             
             EnhancedSlider(
-                title: "Particle Size",
+                title: L10n.AntiStressView.vsEnchasedParticleSize,
                 value: $effectModel.particleSize,
                 range: 2...12,
-                unit: "pt",
+                unit: L10n.AntiStressView.vsEnchasedUnitPt,
                 icon: Icons.circleFill,
                 color: .cyan
             )
             
             EnhancedSlider(
-                title: "Spacing",
+                title: L10n.AntiStressView.vsEnchasedSpacing,
                 value: $effectModel.particleSpacing,
                 range: 5...15,
-                unit: "pt",
+                unit: L10n.AntiStressView.vsEnchasedUnitPt,
                 icon: Icons.squareGrid,
                 color: .purple
             )
@@ -255,28 +255,28 @@ struct AntiStressView: View {
     // MARK: - Force Section
     private var forceSection: some View {
         VStack(spacing: 12) {
-            SectionHeader(title: "Force & Interaction", icon: Icons.handPointUpLeftFill)
+            SectionHeader(title: L10n.AntiStressView.fsSectionHeaderTitle, icon: Icons.handPointUpLeftFill)
             
             EnhancedSlider(
-                title: "Interaction Radius",
+                title: L10n.AntiStressView.fsEnchasedInteractionRadius,
                 value: $effectModel.interactionRadius,
                 range: 20...200,
-                unit: "pt",
+                unit: L10n.AntiStressView.fsEnchasedUnitPt,
                 icon: Icons.circleDotted,
                 color: .orange
             )
             
             EnhancedSlider(
-                title: "Force Strength",
+                title: L10n.AntiStressView.fsEnchasedForceStrength,
                 value: $effectModel.forceStrength,
                 range: 5...50,
-                unit: "N",
+                unit: L10n.AntiStressView.fsEnchasedUnitN,
                 icon: Icons.boltFill,
                 color: .yellow
             )
             
             EnhancedSlider(
-                title: "Force Smoothness",
+                title: L10n.AntiStressView.fsEnchasedForceSmoothness,
                 value: $effectModel.forceSmoothness,
                 range: 0.1...1.0,
                 unit: "",
@@ -294,19 +294,19 @@ struct AntiStressView: View {
     // MARK: - Physics Section
     private var physicsSection: some View {
         VStack(spacing: 12) {
-            SectionHeader(title: "Physics", icon: Icons.atom)
+            SectionHeader(title: L10n.AntiStressView.psSectionHeaderTitle, icon: Icons.atom)
             
             EnhancedSlider(
-                title: "Velocity Factor",
+                title: L10n.AntiStressView.psEnchasedVelocityFactor,
                 value: $effectModel.particleVelocityFactor,
                 range: 0.1...3.0,
-                unit: "×",
+                unit: L10n.AntiStressView.psEnchasedUnitX,
                 icon: Icons.speedometer,
                 color: .blue
             )
             
             EnhancedSlider(
-                title: "Friction",
+                title: L10n.AntiStressView.psEnchasedFriction,
                 value: $effectModel.friction,
                 range: 0.5...0.95,
                 unit: "",
@@ -315,10 +315,10 @@ struct AntiStressView: View {
             )
             
             EnhancedSlider(
-                title: "Spring Strength",
+                title: L10n.AntiStressView.psEnchasedSpringStrength,
                 value: $effectModel.springStrength,
                 range: 0.01...0.15,
-                unit: "k",
+                unit: L10n.AntiStressView.psEnchasedUnitK,
                 icon: Icons.arrowTriangleCirclepath,
                 color: .pink
             )
@@ -333,25 +333,46 @@ struct AntiStressView: View {
     // MARK: - Presets Section
     private var presetsSection: some View {
         VStack(spacing: 12) {
-            SectionHeader(title: "Presets", icon: Icons.starFill)
+            SectionHeader(
+                title: L10n
+                    .AntiStressView
+                    .presetsSectionSectionHeaderTitle,
+                icon: Icons.starFill
+            )
             
             LazyVGrid(columns: [
                 GridItem(.flexible()),
                 GridItem(.flexible())
             ], spacing: 12) {
-                PresetButton(title: "Gentle", icon: Icons.leafFill, color: .green) {
+                PresetButton(
+                    title: L10n.AntiStressView.presetButtonTitleGentle
+                    , icon: Icons.leafFill,
+                    color: .green
+                ) {
                     effectModel.applyPreset(.gentle)
                 }
                 
-                PresetButton(title: "Dynamic", icon: Icons.boltFill, color: .yellow) {
+                PresetButton(
+                    title: L10n.AntiStressView.presetButtonTitleDynamic,
+                    icon: Icons.boltFill,
+                    color: .yellow
+                ) {
                     effectModel.applyPreset(.dynamic)
                 }
                 
-                PresetButton(title: "Fluid", icon: Icons.dropFill, color: .blue) {
+                PresetButton(
+                    title: L10n.AntiStressView.presetButtonTitleFluid,
+                    icon: Icons.dropFill,
+                    color: .blue
+                ) {
                     effectModel.applyPreset(.fluid)
                 }
                 
-                PresetButton(title: "Bouncy", icon: Icons.basketballFill, color: .orange) {
+                PresetButton(
+                    title: L10n.AntiStressView.presetButtonTitleBouncy,
+                    icon: Icons.basketballFill,
+                    color: .orange
+                ) {
                     effectModel.applyPreset(.bouncy)
                 }
             }

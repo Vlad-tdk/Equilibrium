@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - Preset Button
 struct PresetButton: View {
-    let title: String
+    let title: LocalizedStringResource
     let icon: String
     let color: Color
     let action: () -> Void
