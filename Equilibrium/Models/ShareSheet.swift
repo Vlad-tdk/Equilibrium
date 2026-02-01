@@ -2,8 +2,7 @@
 //  ShareSheet.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 31. 1. 2026..
-//
+//  Created by Vlad on 30. 1. 2026..
 
 import SwiftUI
 

@@ -2,7 +2,7 @@
 //  FireMeditationView.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 30. 1. 2026..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI
@@ -12,6 +12,7 @@ struct FireMeditationView: View {
     @StateObject private var viewModel = FireMeditationViewModel()
     @Environment(\.dismiss) private var dismiss
     @State private var showInfo = false
+    @State private var sessionStartTime: Date?
     
     var body: some View {
         ZStack {
@@ -50,6 +51,7 @@ struct FireMeditationView: View {
                 )
                 .onAppear {
                     viewModel.fireScale = 1.1
+                    sessionStartTime = Date()
                 }
             
             // Tap hint
@@ -73,6 +75,10 @@ struct FireMeditationView: View {
                 .contentShape(Rectangle())
                 .ignoresSafeArea()
                 .onTapGesture {
+                    if let startTime = sessionStartTime {
+                        let duration = Date().timeIntervalSince(startTime)
+                        StatisticsManager.shared.trackFireSession(duration: duration)
+                    }
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                         viewModel.isFullscreen = false
                     }

@@ -2,7 +2,7 @@
 //  GIFImageView.swift
 //  Equilibrium
 //
-//  UIViewRepresentable wrapper for GIF animations using existing UIImage+Gif extension
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  MandalaView.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 30. 1. 2026..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI
@@ -12,6 +12,9 @@ struct MandalaView: View {
     @StateObject private var viewModel = MandalaViewModel()
     @Environment(\.dismiss) private var dismiss
     @State private var showInfo = false
+    @State private var sessionStartTime: Date?
+    @State private var viewedMandalas = Set<String>()
+    
     
     var body: some View {
         ZStack {
@@ -22,6 +25,19 @@ struct MandalaView: View {
             if viewModel.isFullscreen {
                 // Fullscreen mandala view
                 fullscreenMandalaView
+                    .onAppear {
+                        sessionStartTime = Date()
+                        viewedMandalas.removeAll()
+                    }
+                    .onDisappear {
+                        if let startTime = sessionStartTime {
+                            let duration = Date().timeIntervalSince(startTime)
+                            StatisticsManager.shared.trackMandalaSession(
+                                duration: duration,
+                                mandalasViewed: viewedMandalas.count
+                            )
+                        }
+                    }
             } else {
                 // Gallery view
                 galleryView
@@ -99,6 +115,11 @@ struct MandalaView: View {
                         .onTapGesture {
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                                 viewModel.selectedMandala = name
+                                viewedMandalas.insert(viewModel.selectedMandala)
+                                StatisticsManager.shared.trackMandalaSession(
+                                    duration: 0,
+                                    mandalasViewed: viewedMandalas.count
+                                )
                             }
                         }
                     }

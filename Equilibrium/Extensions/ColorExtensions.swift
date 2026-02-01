@@ -2,7 +2,7 @@
 //  Color+Extensions.swift
 //  Equilibrium
 //
-//  Modern SwiftUI extensions
+//  Created by Vlad on 6.9.23..
 //
 
 import SwiftUI

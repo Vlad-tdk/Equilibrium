@@ -2,7 +2,7 @@
 //  CalmingImagesView.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 30. 1. 2026..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI
@@ -11,6 +11,8 @@ import Combine
 struct CalmingImagesView: View {
     @StateObject private var viewModel = CalmingImagesViewModel()
     @Environment(\.dismiss) private var dismiss
+    @State private var sessionStartTime: Date?
+    @State private var viewedImages = Set<Int>()
     
     var body: some View {
         ZStack {
@@ -25,6 +27,19 @@ struct CalmingImagesView: View {
         }
         .navigationBarHidden(true)
         .statusBarHidden(viewModel.isFullscreen)
+        .onAppear {
+            sessionStartTime = Date()
+            viewedImages.removeAll()
+        }
+        .onDisappear {
+            if let startTime = sessionStartTime {
+                let duration = Date().timeIntervalSince(startTime)
+                StatisticsManager.shared.trackImagesSession(
+                    duration: duration,
+                    imagesViewed: viewedImages.count
+                )
+            }
+        }
     }
     
     private var fullscreenView: some View {
@@ -78,7 +93,9 @@ struct CalmingImagesView: View {
     
     private var header: some View {
         HStack {
-            Button(action: { dismiss() }) {
+            Button(action: {
+                dismiss()
+            }) {
                 Image(systemName: Icons.leftArrow)
                     .font(.system(size: 20, weight: .semibold))
                     .foregroundColor(.white)
@@ -158,6 +175,7 @@ struct CalmingImagesView: View {
             }
             .background(Color.black.opacity(0.5))
             .onChange(of: viewModel.selectedIndex) { newIndex in
+                viewedImages.insert(newIndex)
                 withAnimation {
                     proxy.scrollTo(newIndex, anchor: .center)
                 }

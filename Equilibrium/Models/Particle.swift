@@ -2,7 +2,7 @@
 //  Particle.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 26.10.24..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI

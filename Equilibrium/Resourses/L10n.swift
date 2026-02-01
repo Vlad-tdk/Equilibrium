@@ -2,7 +2,7 @@
 //  L10n.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 30. 1. 2026..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import Foundation
@@ -65,7 +65,7 @@ enum L10n {
         static var howToUseText: LocalizedStringKey = "about.how_to_use_text"
     }
     enum AntiStressView{
-        static var ParticleSize: LocalizedStringKey = "anti_stress.particleSize"
+        static var title: LocalizedStringKey = "anti_stress.title"
         static var InteractionRadius: LocalizedStringKey = "anti_stress.interactionRadius"
         static var ParticleVelocityFactor: LocalizedStringKey = "anti_stress.particleVelocityFactor"
     }

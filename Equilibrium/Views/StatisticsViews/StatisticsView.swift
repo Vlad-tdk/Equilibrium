@@ -2,7 +2,7 @@
 //  StatisticsView.swift
 //  Equilibrium
 //
-//  Beautiful statistics screen with precise data
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI
@@ -37,9 +37,9 @@ struct StatisticsView: View {
                         detailedSection
                         
                         // Reset button (debug)
-                        if ProcessInfo.processInfo.environment["DEBUG"] != nil {
+                        //if ProcessInfo.processInfo.environment["DEBUG"] != nil {
                             resetButton
-                        }
+                        //}
                     }
                     .padding()
                 }
@@ -122,7 +122,13 @@ struct StatisticsView: View {
         }
     }
     
-    private func overviewCard(value: String, label: String, icon: String, color: Color) -> some View {
+    private func overviewCard(
+        value: String,
+        label: String,
+        icon: String,
+        color: Color
+    ) -> some View {
+        
         VStack(spacing: 12) {
             Image(systemName: icon)
                 .font(.system(size: 28))
@@ -260,7 +266,7 @@ struct StatisticsView: View {
                     )
                 }
                 
-                if statsManager.stats.mandalaSessions > 0 {
+                if statsManager.stats.mandalaSessions > 0 || statsManager.stats.totalMandalasViewed > 0 {
                     featureRow(
                         icon: Icons.circleHexagongrid,
                         title: String(localized:L10n.StatisticsView.mandalaTitleSessions),
@@ -327,11 +333,11 @@ struct StatisticsView: View {
                     .foregroundColor(.white)
                 
                 HStack(spacing: 12) {
-                    Label("\(sessions)", systemImage: "number")
+                    Label(String(sessions), systemImage: Icons.number)
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.7))
                     
-                    Label(formatTime(time), systemImage: "clock")
+                    Label(formatTime(time), systemImage: Icons.clock)
                         .font(.system(size: 12))
                         .foregroundColor(.white.opacity(0.7))
                 }

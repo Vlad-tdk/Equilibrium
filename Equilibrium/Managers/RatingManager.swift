@@ -2,7 +2,7 @@
 //  RatingManager.swift
 //  Equilibrium
 //
-//  Smart, non-intrusive rating request system
+//  Created by Vlad on 6.9.23..
 //
 
 import SwiftUI

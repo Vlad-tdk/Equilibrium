@@ -2,7 +2,7 @@
 //  OnboardingView_Swipeable.swift
 //  Equilibrium
 //
-//  Swipeable onboarding (alternative version)
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  LaunchScreenView.swift
 //  Equilibrium
 //
-//  Beautiful animated launch screen
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import SwiftUI
@@ -115,11 +115,11 @@ struct LaunchScreenView: View {
     
     private var textView: some View {
         VStack(spacing: 8) {
-            Text("Equilibrium")
+            Text(L10n.Home.homeHeader)
                 .font(.system(size: 36, weight: .bold, design: .rounded))
                 .foregroundColor(.white)
             
-            Text("Find your inner peace")
+            Text(L10n.Home.findInnerPeace)
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white.opacity(0.8))
         }

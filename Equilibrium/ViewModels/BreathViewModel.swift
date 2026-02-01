@@ -2,7 +2,7 @@
 //  BreathViewModel.swift
 //  Equilibrium
 //
-//  Created by Vladimir Martemianov on 30. 1. 2026..
+//  Created by Vlad on 30. 1. 2026..
 //
 
 import Foundation
@@ -53,7 +53,13 @@ class BreathViewModel: ObservableObject {
         if currentCycle >= totalCycles {
             RatingManager.shared.recordBreathSessionCompleted()
             let minutes = Int((inhaleTime + holdTime * 2 + exhaleTime) * Double(totalCycles) / 60)
+            let duration = (inhaleTime + holdTime * 2 + exhaleTime) * Double(totalCycles)
             RatingManager.shared.recordMeditationTime(minutes: minutes)
+            StatisticsManager.shared.trackBreathSession(
+                duration: duration,
+                cycles: totalCycles
+            )
+            print()
         }
     }
     
@@ -64,7 +70,7 @@ class BreathViewModel: ObservableObject {
         }
         
         // Inhale phase
-        breathPhase = "Inhale"
+        breathPhase = String(localized: L10n.BreathView.inhale)
         animateWithCountdown(
             duration: inhaleTime,
             scale: 2.0,
@@ -75,7 +81,7 @@ class BreathViewModel: ObservableObject {
     private func performHoldAfterInhale() {
         guard isAnimating else { return }
         
-        breathPhase = "Hold"
+        breathPhase = String(localized: L10n.BreathView.hold)
         countdownOnly(
             duration: holdTime,
             nextPhase: performExhale
@@ -85,7 +91,7 @@ class BreathViewModel: ObservableObject {
     private func performExhale() {
         guard isAnimating else { return }
         
-        breathPhase = "Exhale"
+        breathPhase = String(localized: L10n.BreathView.exhale)
         animateWithCountdown(
             duration: exhaleTime,
             scale: 1.0,
@@ -96,7 +102,7 @@ class BreathViewModel: ObservableObject {
     private func performHoldAfterExhale() {
         guard isAnimating else { return }
         
-        breathPhase = "Hold"
+        breathPhase = String(localized: L10n.BreathView.hold)
         currentCycle += 1
         
         countdownOnly(
