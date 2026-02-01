@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacification — Политика конфиденциальности</title>
+  <style>
+    :root {
+      --accent: #007aff;
+      --bg: #f8f9fa;
+      --card: #ffffff;
+      --text: #111111;
+      --muted: #6c757d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: #e9ecef;
+      border-radius: 50px;
+      padding: 4px;
+      margin: 16px 0 32px;
+    }
+
+    .lang-btn {
+      padding: 10px 24px;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.18s ease;
+      color: var(--muted);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,122,255,0.3);
+    }
+
+    .important {
+      background: #e3f2fd;
+      border-left: 5px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin: 24px 0 40px;
+      font-size: 1.1rem;
+    }
+
+    section {
+      background: var(--card);
+      padding: 28px;
+      margin-bottom: 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--text);
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    ul {
+      padding-left: 24px;
+      margin: 12px 0;
+    }
+
+    li { margin-bottom: 8px; }
+
+    .contact {
+      background: #f1f3f5;
+      padding: 24px;
+      border-radius: 12px;
+      margin: 40px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Переключение языков */
+    [data-lang="ru"] .en,
+    [data-lang="en"] .ru {
+      display: none;
+    }
+  </style>
+</head>
+<body data-lang="ru">
+
+  <div class="container">
+
+    <header>
+      <h1>Pacification</h1>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ru">Русский</button>
+        <button class="lang-btn" data-lang="en">English</button>
+      </div>
+    </header>
+
+    <div class="important ru">
+      <strong>Коротко:</strong><br>
+      Приложение <strong>не собирает</strong>, <strong>не хранит</strong>, <strong>не передаёт</strong> и <strong>не использует</strong> никакие Ваши данные.<br>
+      Работает полностью локально, без интернета.
+    </div>
+
+    <div class="important en">
+      <strong>In short:</strong><br>
+      The app <strong>does not collect</strong>, <strong>store</strong>, <strong>transmit</strong> or <strong>use</strong> any of your data.<br>
+      It runs completely locally and offline.
+    </div>
+
+    <!-- Русский контент -->
+    <div class="ru">
+      <section>
+        <h2>1. Какие данные собираются?</h2>
+        <p>Никакие.</p>
+        <ul>
+          <li>Личные данные (имя, email, телефон и т.п.)</li>
+          <li>Технические данные (IP, ID устройства, IDFA и т.п.)</li>
+          <li>Данные использования приложения</li>
+          <li>Доступ к камере, микрофону, геолокации, фото, контактам и любым другим данным</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Передача данных третьим лицам</h2>
+        <p>Невозможна — приложение не отправляет данные никуда.</p>
+        <p>В приложении нет:</p>
+        <ul>
+          <li>рекламы</li>
+          <li>аналитики (Firebase, Appsflyer и т.п.)</li>
+          <li>трекинга</li>
+          <li>сетевых запросов</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Продажа данных</h2>
+        <p>Мы ничего не продаём, потому что собираем ноль данных.</p>
+      </section>
+
+      <section>
+        <h2>4. Хранение данных</h2>
+        <p>Любые настройки или контент, созданный Вами внутри приложения, сохраняются исключительно локально на устройстве.</p>
+        <p>Ничего не уходит за его пределы.</p>
+      </section>
+
+      <section>
+        <h2>5. Изменения в политике</h2>
+        <p>Так как данные не собираются, политика вряд ли изменится. При существенных изменениях функциональности мы обновим текст и укажем новую дату.</p>
+      </section>
+
+      <div class="contact">
+        <h2>Связь с нами</h2>
+        <p>Вопросы по конфиденциальности? Пишите:</p>
+        <ul>
+          <li><strong>X:</strong> <a href="https://x.com/SwiftAIBuilder" target="_blank">@SwiftAIBuilder</a></li>
+          <li><strong>Email:</strong> <a href="mailto:appequilibrium@icloud.com">appequilibrium@icloud.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        Версия 1.0 • 1 февраля 2026
+      </div>
+    </div>
+
+    <!-- Английский контент -->
+    <div class="en">
+      <section>
+        <h2>1. What data do we collect?</h2>
+        <p>None whatsoever.</p>
+        <ul>
+          <li>Personal information (name, email, phone, etc.)</li>
+          <li>Technical data (IP address, device IDs, IDFA, etc.)</li>
+          <li>Usage or analytics data</li>
+          <li>Access to camera, microphone, location, photos, contacts or any other data</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Sharing with third parties</h2>
+        <p>Impossible — the app never sends any data anywhere.</p>
+        <p>There is no:</p>
+        <ul>
+          <li>advertising</li>
+          <li>analytics (Firebase, Appsflyer, etc.)</li>
+          <li>tracking</li>
+          <li>network requests</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Selling data</h2>
+        <p>We do not sell anything because we collect nothing.</p>
+      </section>
+
+      <section>
+        <h2>4. Data storage</h2>
+        <p>Any settings or content you create inside the app are stored exclusively locally on your device.</p>
+        <p>Nothing ever leaves the device.</p>
+      </section>
+
+      <section>
+        <h2>5. Changes to this policy</h2>
+        <p>Since no data is collected, changes are very unlikely. If functionality changes significantly, we will update this policy and the effective date.</p>
+      </section>
+
+      <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Questions about privacy? Reach out:</p>
+        <ul>
+          <li><strong>X:</strong> <a href="https://x.com/SwiftAIBuilder" target="_blank">@SwiftAIBuilder</a></li>
+          <li><strong>Email:</strong> <a href="mailto:appequilibrium@icloud.com">appequilibrium@icloud.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        Version 1.0 • February 1, 2026
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.body.dataset.lang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
