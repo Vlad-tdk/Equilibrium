@@ -17,7 +17,7 @@ Equilibrium
 Дыхательные практики • Визуальная медитация • Интерактивные частицы<br>
 <br>
 <a href="https://apps.apple.com/app/equilibrium">
-<img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ru-ru?size=250x83&amp;releaseDate=1234567890" alt="Загрузить в App Store" style="width: 200px;">
+<img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ru-ru?size=250x83&amp;releaseDate=1234567890" alt="Загружено в App Store" style="width: 200px;">
 </a>
 </p>
 
