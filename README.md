@@ -79,7 +79,7 @@ Screenshots
 <img src="https://github.com/user-attachments/assets/67c3e411-80ba-4156-88c3-0185eff23c3e" width="32%" />
 <img src="https://github.com/user-attachments/assets/cca93b18-b662-4dff-a346-e0521b967911" width="32%" />
 </div>
-
+```
 Tech Stack
 swiftSwiftUI          // Declarative UI framework
 Combine          // Reactive programming
@@ -87,7 +87,7 @@ Canvas API       // High-performance rendering
 AVFoundation     // GIF animation & audio
 CoreImage        // Image processing
 UserDefaults     // Local persistence
-
+```
 
 **Zero external dependencies** — 100% native iOS code
 
@@ -259,8 +259,8 @@ Drag → continuous interaction
 Settings → customize 8 parameters
 Presets → Gentle, Dynamic, Fluid, Bouncy
 
-```
 Configuration
+```
 Physics Parameters
 In ParticleEffectModel.swift:
 swiftvar particleSize: CGFloat = 3.37           // Visual size
