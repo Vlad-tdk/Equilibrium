@@ -10,9 +10,33 @@
 		F559B47C2F2CF2FB00F79C40 /* Equilibrium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Equilibrium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F557BFDC2F2FDBE3009CACA8 /* Exceptions for "Equilibrium" folder in "Equilibrium" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Docs/README.md,
+			);
+			target = F559B47B2F2CF2FB00F79C40 /* Equilibrium */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		F557BFDD2F2FDBE3009CACA8 /* Exceptions for "Equilibrium" folder in "Compile Sources" phase from "Equilibrium" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = F559B4782F2CF2FB00F79C40 /* Sources */;
+			membershipExceptions = (
+				Docs/README.md,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F559B47E2F2CF2FB00F79C40 /* Equilibrium */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F557BFDC2F2FDBE3009CACA8 /* Exceptions for "Equilibrium" folder in "Equilibrium" target */,
+				F557BFDD2F2FDBE3009CACA8 /* Exceptions for "Equilibrium" folder in "Compile Sources" phase from "Equilibrium" target */,
+			);
 			path = Equilibrium;
 			sourceTree = "<group>";
 		};
