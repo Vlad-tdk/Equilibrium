@@ -9,7 +9,7 @@ Equilibrium
 <strong>Современное iOS приложение для медитации и релаксации</strong><br>
 Дыхательные практики • Визуальная медитация • Интерактивные частицы<br>
 <br>
-<a href="https://apps.apple.com/app/equilibrium">
+<a href="https://apps.apple.com/rs/app/pacification">
 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ru-ru?size=250x83&amp;releaseDate=1234567890" alt="Загружено в App Store" style="width: 200px;">
 </a>
 </p>
@@ -561,31 +561,11 @@ func updateParticles() {
 ## Лицензия
 
 MIT License
-```
-Copyright (c) 2026 Equilibrium
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
 Контакты
-Ссылка на проект: [https://github.com/yourusername/equilibrium](https://github.com/Vlad-tdk/Equilibrium)
-App Store: https://apps.apple.com/app/equilibrium
-Email: support@equilibrium.app
+Ссылка на проект: [Equilibrium на GitHub](https://github.com/Vlad-tdk/Equilibrium)
+App Store: https://apps.apple.com/rs/app/pacification/
+Email: appequilibrium@icloud.com
 
 Благодарности
 
