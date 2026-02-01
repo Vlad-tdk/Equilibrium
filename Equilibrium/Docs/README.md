@@ -127,12 +127,12 @@ Equilibrium — это комплексное приложение для мед
 
 Скриншоты
 <div align="center">
-<img width="621" height="1344" alt="2" src="https://github.com/user-attachments/assets/d1b0ffef-0cba-4f8e-9c19-a0bfdd1ec5b0" width="32%" />
-<img width="621" height="1344" alt="3" src="https://github.com/user-attachments/assets/d71b9940-0bbf-406d-a0ee-786e28f15d71" width="32%"/>
-<img width="621" height="1344" alt="4" src="https://github.com/user-attachments/assets/9ff28002-c5ff-4b32-841b-4be8d54a41af" width="32%"/>
-<img width="621" height="1344" alt="9" src="https://github.com/user-attachments/assets/d4cf0519-9c63-4eee-b11e-788097e26e51" width="32%" />
-<img width="621" height="1344" alt="1" src="https://github.com/user-attachments/assets/a6606f7e-cfc7-4834-933d-b7873d155162" width="32%" />
-<img width="621" height="1344" alt="6" src="https://github.com/user-attachments/assets/790eaf7d-279a-4ea9-b87d-efc7f8bd766e" width="32%" />
+<img src="https://github.com/user-attachments/assets/d1b0ffef-0cba-4f8e-9c19-a0bfdd1ec5b0" width="32%" />
+<img src="https://github.com/user-attachments/assets/d71b9940-0bbf-406d-a0ee-786e28f15d71" width="32%"/>
+<img src="https://github.com/user-attachments/assets/9ff28002-c5ff-4b32-841b-4be8d54a41af" width="32%"/>
+<img alt="9" src="https://github.com/user-attachments/assets/d4cf0519-9c63-4eee-b11e-788097e26e51" width="32%" />
+<img src="https://github.com/user-attachments/assets/a6606f7e-cfc7-4834-933d-b7873d155162" width="32%" />
+<img src="https://github.com/user-attachments/assets/790eaf7d-279a-4ea9-b87d-efc7f8bd766e" width="32%" />
 </div>
 
 Технические детали
