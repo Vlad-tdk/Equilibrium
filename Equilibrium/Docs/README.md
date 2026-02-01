@@ -199,87 +199,103 @@ swift- SwiftUI          // Декларативный UI
 
 ## Структура проекта
 ```
-├── App
-│   └── EquilibriumApp.swift
-├── Docs
-│   ├── ARCHITECTURE.md
-│   ├── CHANGELOG.md
-│   └── DESIGN_COMPARISON.md
-├── Extensions
-│   ├── ColorExtensions.swift
-│   └── Extension+UIImage+Gif.swift
-├── Localizable.xcstrings
-├── Managers
-│   ├── AudioPlayerManager.swift
-│   ├── RatingManager.swift
-│   ├── StatisticsManager.swift
-│   └── StorageManager.swift
-├── Models
-│   ├── AppStatistics.swift
-│   ├── BreathSettings.swift
-│   ├── ColorModel.swift
-│   ├── ColorsModel.swift
-│   ├── FeatureModel.swift
-│   ├── OnboardingPage.swift
-│   ├── Particle.swift
-│   ├── ParticleEffectModel.swift
-│   └── ShareSheet.swift
-├── README.md
-├── Resourses
-│   ├── Assets.xcassets
-│   ├── Colors.swift
-│   ├── Gif
-│   ├── Icons.swift
-│   ├── L10n.swift
-│   ├── Music
-│   └── Resourses.swift
-├── Supporting Views
-│   ├── AchievementView.swift
-│   ├── AnimatedGradientBackground.swift
-│   ├── ColorPickerRow.swift
-│   ├── GIFImageView.swift
-│   ├── ParameterSlider.swift
-│   └── ParticleCanvas.swift
-├── Types
-│   └── MeditationType.swift
-├── ViewModels
-│   ├── BreathViewModel.swift
-│   ├── CalmingImagesViewModel.swift
-│   ├── FireMeditationViewModel.swift
-│   └── MandalaViewModel.swift
-└── Views
-├── AboutViews
-│   ├── AboutView.swift
-│   └── FeatureCard.swift
-├── AntiStressViews
-│   ├── AntiStressView.swift
-│   ├── EnhancedSlider.swift
-│   ├── PhysicsGuideView.swift
-│   ├── PresetButton.swift
-│   └── SectionHeader.swift
-├── BreathViews
-│   ├── BreathSettingsView.swift
-│   ├── BreathView.swift
-│   ├── SettingBadge.swift
-│   └── SettingSlider.swift
-├── CalmingImagesViews
-│   └── CalmingImagesView.swift
-├── FireMeditation
-│   ├── FireMeditationView.swift
-│   └── FireSelectionItem.swift
-├── MainViews
-│   ├── MainView.swift
-│   └── MeditationCard.swift
-├── MandalaViews
-│   ├── MandalaGridItem.swift
-│   └── MandalaView.swift
-├── Onboarding
-│   ├── LaunchScreenView.swift
-│   └── OnboardingView.swift
-├── RatingPromptView.swift
-└── StatisticsViews
-├── StatisticsView.swift
-└── StatsPeriod.swift
+```
+Equilibrium/
+├── App/
+│   └── EquilibriumApp.swift              # App entry point
+│
+├── Views/
+│   ├── MainViews/
+│   │   ├── MainView.swift                # Home screen
+│   │   └── MeditationCard.swift          # Feature cards
+│   │
+│   ├── BreathViews/
+│   │   ├── BreathView.swift              # Breathing UI
+│   │   ├── BreathSettingsView.swift      # Customization
+│   │   └── SettingSlider.swift           # Custom controls
+│   │
+│   ├── AntiStressViews/
+│   │   ├── AntiStressView.swift          # Particle UI
+│   │   ├── PhysicsGuideView.swift        # Help screen
+│   │   └── PresetButton.swift            # Quick settings
+│   │
+│   ├── MandalaViews/
+│   │   ├── MandalaView.swift             # Mandala viewer
+│   │   └── MandalaGridItem.swift         # Grid cell
+│   │
+│   ├── CalmingImagesViews/
+│   │   └── CalmingImagesView.swift       # Image gallery
+│   │
+│   ├── FireMeditation/
+│   │   ├── FireMeditationView.swift      # Fire animation
+│   │   └── FireSelectionItem.swift       # Fire selector
+│   │
+│   ├── StatisticsViews/
+│   │   ├── StatisticsView.swift          # Stats display
+│   │   └── StatsPeriod.swift             # Time filters
+│   │
+│   ├── Onboarding/
+│   │   ├── LaunchScreenView.swift        # Splash screen
+│   │   └── OnboardingView.swift          # 4-page intro
+│   │
+│   ├── AboutViews/
+│   │   ├── AboutView.swift               # About screen
+│   │   └── FeatureCard.swift             # Info cards
+│   │
+│   └── RatingPromptView.swift            # Rating dialog
+│
+├── ViewModels/
+│   ├── BreathViewModel.swift             # Breathing logic
+│   ├── CalmingImagesViewModel.swift      # Images logic
+│   ├── FireMeditationViewModel.swift     # Fire logic
+│   └── MandalaViewModel.swift            # Mandala logic
+│
+├── Models/
+│   ├── AppStatistics.swift               # Statistics data
+│   ├── BreathSettings.swift              # Breath config
+│   ├── Particle.swift                    # Particle data
+│   ├── ParticleEffectModel.swift         # Physics engine
+│   ├── OnboardingPage.swift              # Onboarding data
+│   ├── FeatureModel.swift                # Feature metadata
+│   └── ShareSheet.swift                  # Share helper
+│
+├── Managers/
+│   ├── StatisticsManager.swift           # Stats tracking
+│   ├── RatingManager.swift               # Rating logic
+│   ├── AudioPlayerManager.swift          # Music playback
+│   └── StorageManager.swift              # Data persistence
+│
+├── Supporting Views/
+│   ├── AnimatedGradientBackground.swift  # Gradient bg
+│   ├── ParticleCanvas.swift              # Canvas renderer
+│   ├── GIFImageView.swift                # GIF display
+│   ├── ParameterSlider.swift             # Custom slider
+│   ├── ColorPickerRow.swift              # Color picker
+│   └── AchievementView.swift             # Milestone popup
+│
+├── Types/
+│   └── MeditationType.swift              # Feature enum
+│
+├── Extensions/
+│   ├── ColorExtensions.swift             # Hex colors
+│   └── Extension+UIImage+Gif.swift       # GIF support
+│
+├── Resources/
+│   ├── Assets.xcassets/                  # Images & icons
+│   ├── Music/                            # Audio files
+│   ├── Gif/                              # GIF animations
+│   ├── Colors.swift                      # Color palette
+│   ├── Icons.swift                       # SF Symbols
+│   ├── L10n.swift                        # Localization
+│   └── Resources.swift                   # Resource helpers
+│
+├── Docs/
+│   ├── ARCHITECTURE.md                   # Architecture guide
+│   ├── CHANGELOG.md                      # Version history
+│   └── DESIGN_COMPARISON.md              # Design decisions
+│
+├── Localizable.xcstrings                 # String catalog
+└── README.md                             # This file
 ```
 
 ---
