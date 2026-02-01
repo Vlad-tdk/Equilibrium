@@ -317,7 +317,7 @@ struct AntiStressView: View {
             EnhancedSlider(
                 title: L10n.AntiStressView.psEnchasedSpringStrength,
                 value: $effectModel.springStrength,
-                range: 0.01...0.15,
+                range: 0.01...1.0,
                 unit: L10n.AntiStressView.psEnchasedUnitK,
                 icon: Icons.arrowTriangleCirclepath,
                 color: .pink

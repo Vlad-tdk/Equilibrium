@@ -37,9 +37,9 @@ struct StatisticsView: View {
                         detailedSection
                         
                         // Reset button (debug)
-                        //if ProcessInfo.processInfo.environment["DEBUG"] != nil {
+                        if ProcessInfo.processInfo.environment["DEBUG"] != nil {
                             resetButton
-                        //}
+                        }
                     }
                     .padding()
                 }
@@ -51,9 +51,14 @@ struct StatisticsView: View {
     // MARK: - Background
     private var backgroundGradient: some View {
         LinearGradient(
-            colors: Colors.AnimatedGradientBackgroundColor.colors,
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+            colors: [
+                Color(hex: "4A7C9E"),
+                Color(hex: "3E7352"),
+                Color(hex: "#6bc8cb"),
+                
+            ],
+            startPoint: .topTrailing,
+            endPoint: .bottomLeading
         )
         .ignoresSafeArea()
     }
@@ -93,7 +98,7 @@ struct StatisticsView: View {
                     value: String(statsManager.getTotalSessions()),
                     label: String(localized: L10n.StatisticsView.labelSessions),
                     icon: Icons.checkmarkCircleFill,
-                    color: .green
+                    color: Color(hex: "#0a3b06")
                 )
                 
                 overviewCard(
@@ -146,7 +151,16 @@ struct StatisticsView: View {
         .padding(.vertical, 20)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(.white.opacity(0.1))
+                .fill( LinearGradient(
+                    colors: [
+                        
+                        Color(hex: "#e0f2fe").opacity(0.3).opacity(0.3), // светло-голубой
+                        Color(hex: "#dbeafe").opacity(0.3).opacity(0.3), // чуть насыщеннее
+                        Color(hex: "#bfdbfe").opacity(0.3).opacity(0.3)  // ближе к таббару
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
         )
     }
     
@@ -195,6 +209,7 @@ struct StatisticsView: View {
                         .foregroundColor(.yellow)
                     
                     Text(L10n.StatisticsView.longestTitle)
+                        .lineLimit(2)
                         .font(.system(size: 14))
                         .foregroundColor(.white.opacity(0.7))
                 }
@@ -211,10 +226,19 @@ struct StatisticsView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 20)
-                .fill(.white.opacity(0.1))
+                .fill( LinearGradient(
+                    colors: [
+                        
+                        Color(hex: "#e0f2fe").opacity(0.3), // светло-голубой
+                        Color(hex: "#dbeafe").opacity(0.3), // чуть насыщеннее
+                        Color(hex: "#bfdbfe").opacity(0.3)  // ближе к таббару
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.orange.opacity(0.3), lineWidth: 1)
+                        .stroke(Color.blue.opacity(0.5), lineWidth: 1)
                 )
         )
     }
@@ -252,17 +276,6 @@ struct StatisticsView: View {
                         time: statsManager.stats.totalBreathingMinutes,
                         detail: L10n.StatisticsView.statsTotalBreathCycles(statsManager.stats.totalBreathCycles),
                         color: .cyan
-                    )
-                }
-                
-                if statsManager.stats.biometricSessions > 0 {
-                    featureRow(
-                        icon: Icons.waveformPathEcg,
-                        title: "Biometric Coach",
-                        sessions: statsManager.stats.biometricSessions,
-                        time: statsManager.stats.totalBiometricMinutes,
-                        detail: "Avg HR: \(statsManager.stats.avgHeartRate) • Coherence: \(statsManager.stats.avgCoherence)%",
-                        color: .red
                     )
                 }
                 
@@ -306,7 +319,7 @@ struct StatisticsView: View {
                         sessions: statsManager.stats.antiStressSessions,
                         time: statsManager.stats.totalAntiStressMinutes,
                         detail: L10n.StatisticsView.antiStressDetaled(statsManager.stats.totalInteractions),
-                        color: .green
+                        color: Color(hex: "#11a303")
                     )
                 }
             }
@@ -334,18 +347,18 @@ struct StatisticsView: View {
                 
                 HStack(spacing: 12) {
                     Label(String(sessions), systemImage: Icons.number)
-                        .font(.system(size: 12))
+                        .font(.system(size: 14))
                         .foregroundColor(.white.opacity(0.7))
                     
                     Label(formatTime(time), systemImage: Icons.clock)
-                        .font(.system(size: 12))
+                        .font(.system(size: 14))
                         .foregroundColor(.white.opacity(0.7))
                 }
                 
                 if let detail = detail {
                     Text(detail)
-                        .font(.system(size: 12))
-                        .foregroundColor(color.opacity(0.8))
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundColor(color.opacity(0.9))
                 }
             }
             
@@ -354,7 +367,16 @@ struct StatisticsView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white.opacity(0.08))
+                .fill( LinearGradient(
+                    colors: [
+                        
+                        Color(hex: "#e0f2fe").opacity(0.3), // светло-голубой
+                        Color(hex: "#dbeafe").opacity(0.3), // чуть насыщеннее
+                        Color(hex: "#bfdbfe").opacity(0.3)  // ближе к таббару
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
         )
     }
     
@@ -410,7 +432,7 @@ struct StatisticsView: View {
                 .frame(width: 32)
             
             Text(title)
-                .font(.system(size: 15, weight: .medium))
+                .font(.system(size: 16, weight: .medium))
                 .foregroundColor(.white.opacity(0.9))
             
             Spacer()
@@ -422,7 +444,15 @@ struct StatisticsView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white.opacity(0.08))
+                .fill( LinearGradient(
+                    colors: [
+                        Color(hex: "#e0f2fe").opacity(0.3), // светло-голубой
+                        Color(hex: "#dbeafe").opacity(0.3), // чуть насыщеннее
+                        Color(hex: "#bfdbfe").opacity(0.3)  // ближе к таббару
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                ))
         )
     }
     

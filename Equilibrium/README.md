@@ -15,30 +15,6 @@
 - Reactive data flow с @StateObject/@ObservedObject
 - Smooth animations и transitions
 
-## Структура новых файлов
-
-```
-Equilibrium/
-├── App/
-│   ├── AppDelegate.swift (обновлен)
-│   ├── SceneDelegate.swift (обновлен - без storyboard)
-│   └── Info.plist (обновлен - без storyboard reference)
-│
-├── Views/
-│   ├── MainView.swift (главный экран)
-│   ├── BreathView.swift (дыхательная тренировка)
-│   ├── MandalaView.swift (медитация с мандалами)
-│   ├── CalmingImagesView.swift (успокаивающие изображения)
-│   ├── FireMeditationView.swift (медитация на огонь)
-│   ├── AntiStressView.swift (уже был в SwiftUI)
-│   └── AboutView.swift (о приложении)
-│
-├── Extensions/
-│   └── ColorExtensions.swift
-│
-└── Models/
-    └── (существующие модели остаются)
-```
 ## Дизайн особенности
 
 ### Цветовая палитра:
@@ -57,7 +33,7 @@ Equilibrium/
 
 ## Требования
 
-- iOS 15.0+
+- iOS 16.0+
 - Xcode 14.0+
 - Swift 5.7+
 - SwiftUI framework
@@ -76,10 +52,8 @@ Equilibrium/
 - Fire GIF изображения: sv, sv2, cos
 
 ### GIF анимации:
-Для fire meditation нужно интегрировать GIF библиотеку:
-- SDWebImageSwiftUI
-- или Kingfisher
-- или оставить существующий UIImage extension
+Для fire meditation:
+- существующий UIImage extension
 
 ## Известные моменты
 

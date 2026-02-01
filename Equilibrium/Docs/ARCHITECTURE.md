@@ -4,64 +4,86 @@
 
 ```
 Equilibrium/
-│
-├── App/
-│   ├── AppDelegate.swift          # Точка входа приложения
-│   ├── SceneDelegate.swift         # Управление UI сценой (без storyboard)
-│   └── Info.plist                  # Конфигурация (без storyboard refs)
-│
-├── Views/
-│   ├── Main/
-│   │   ├── MainView.swift          # Главный экран с навигацией
-│   │   └── AboutView.swift         # Информация о приложении
-│   │
-│   ├── Meditation/
-│   │   ├── BreathView.swift        # Дыхательная тренировка
-│   │   ├── MandalaView.swift       # Медитация с мандалами
-│   │   ├── CalmingImagesView.swift # Успокаивающие изображения
-│   │   ├── FireMeditationView.swift# Медитация на огонь
-│   │   └── AntiStressView.swift    # Интерактивная anti-stress терапия
-│   │
-│   └── Supporting/
-│       └── (Settings views, если нужно)
-│
-├── ViewModels/
-│   ├── BreathViewModel             # Внутри BreathView.swift
-│   ├── MandalaViewModel            # Внутри MandalaView.swift
-│   ├── CalmingImagesViewModel      # Внутри CalmingImagesView.swift
-│   ├── FireMeditationViewModel     # Внутри FireMeditationView.swift
-│   ├── ParticleEffectModel.swift   # Существующая модель
-│   └── AudioPlayerManager          # Внутри MainView.swift
-│
-├── Models/
-│   ├── ColorView.swift             # Codable модель цвета (существующая)
-│   ├── ColorModel.swift            # SwiftUI Color model (в BreathView)
-│   ├── Particle.swift              # Модель частицы
-│   └── Models.swift                # Константы моделей
-│
-├── Managers/
-│   ├── StorageManager.swift        # UserDefaults управление
-│   └── Player.swift                # Аудио плеер (legacy, можно удалить)
-│
-├── Resources/
-│   ├── Resourses.swift             # Константы ресурсов
-│   └── Assets.xcassets/            # Изображения, цвета
-│       ├── Images/
-│       │   ├── m1-m15.png         # Мандалы
-│       │   ├── 1-83.jpg           # Природа
-│       │   └── Breath.png, etc    # Иконки
-│       └── Sounds/
-│           ├── soundsOfTheForest.mp3
-│           └── fire.mp3
-│
-├── Extensions/
-│   ├── ColorExtensions.swift       # Color+hex initializer
-│   ├── UIColor_Extension.swift     # UIColor+hex (legacy)
-│   └── Extension_UIAlert.swift     # UIViewController alert (legacy)
-│
-└── Supporting Views/
-    ├── ParticleCanvas.swift        # Canvas для рисования частиц
-    └── ParameterSlider.swift       # Slider для настроек
+├── App
+│   └── EquilibriumApp.swift
+├── Docs
+│   ├── ARCHITECTURE.md
+│   ├── CHANGELOG.md
+│   └── DESIGN_COMPARISON.md
+├── Extensions
+│   ├── ColorExtensions.swift
+│   └── Extension+UIImage+Gif.swift
+├── Localizable.xcstrings
+├── Managers
+│   ├── AudioPlayerManager.swift
+│   ├── RatingManager.swift
+│   ├── StatisticsManager.swift
+│   └── StorageManager.swift
+├── Models
+│   ├── AppStatistics.swift
+│   ├── BreathSettings.swift
+│   ├── ColorModel.swift
+│   ├── ColorsModel.swift
+│   ├── FeatureModel.swift
+│   ├── OnboardingPage.swift
+│   ├── Particle.swift
+│   ├── ParticleEffectModel.swift
+│   └── ShareSheet.swift
+├── README.md
+├── Resourses
+│   ├── Colors.swift
+│   ├── Gif
+│   ├── Icons.swift
+│   ├── L10n.swift
+│   ├── Music
+│   └── Resourses.swift
+├── Supporting Views
+│   ├── AchievementView.swift
+│   ├── AnimatedGradientBackground.swift
+│   ├── ColorPickerRow.swift
+│   ├── GIFImageView.swift
+│   ├── ParameterSlider.swift
+│   └── ParticleCanvas.swift
+├── Types
+│   └── MeditationType.swift
+├── ViewModels
+│   ├── BreathViewModel.swift
+│   ├── CalmingImagesViewModel.swift
+│   ├── FireMeditationViewModel.swift
+│   └── MandalaViewModel.swift
+└── Views
+    ├── AboutViews
+    │   ├── AboutView.swift
+    │   └── FeatureCard.swift
+    ├── AntiStressViews
+    │   ├── AntiStressView.swift
+    │   ├── EnhancedSlider.swift
+    │   ├── PhysicsGuideView.swift
+    │   ├── PresetButton.swift
+    │   └── SectionHeader.swift
+    ├── BreathViews
+    │   ├── BreathSettingsView.swift
+    │   ├── BreathView.swift
+    │   ├── SettingBadge.swift
+    │   └── SettingSlider.swift
+    ├── CalmingImagesViews
+    │   └── CalmingImagesView.swift
+    ├── FireMeditation
+    │   ├── FireMeditationView.swift
+    │   └── FireSelectionItem.swift
+    ├── MainViews
+    │   ├── MainView.swift
+    │   └── MeditationCard.swift
+    ├── MandalaViews
+    │   ├── MandalaGridItem.swift
+    │   └── MandalaView.swift
+    ├── Onboarding
+    │   ├── LaunchScreenView.swift
+    │   └── OnboardingView.swift
+    ├── RatingPromptView.swift
+    └── StatisticsViews
+        ├── StatisticsView.swift
+        └── StatsPeriod.swift
 ```
 
 ## Архитектурные паттерны

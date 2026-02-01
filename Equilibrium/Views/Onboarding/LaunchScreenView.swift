@@ -105,7 +105,7 @@ struct LaunchScreenView: View {
                 .shadow(color: .cyan.opacity(0.5), radius: 20, x: 0, y: 10)
             
             // Icon
-            Image(systemName: "circle.hexagongrid.fill")
+            Image(systemName: Icons.circleHexagongridFill)
                 .font(.system(size: 60))
                 .foregroundColor(.white)
         }
