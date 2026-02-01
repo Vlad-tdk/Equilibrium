@@ -211,7 +211,7 @@ Equilibrium/
 │
 ├── Localizable.xcstrings                 # String catalog
 └── README.md                             # This file
-
+```
 Installation
 Requirements
 
