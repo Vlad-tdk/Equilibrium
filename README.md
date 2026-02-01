@@ -266,7 +266,7 @@ Configuration
 ```
 Physics Parameters
 In ParticleEffectModel.swift:
-swiftvar particleSize: CGFloat = 3.37           // Visual size
+swiftvar particleSize: CGFloat = 3.37      // Visual size
 var particleSpacing: CGFloat = 8           // Density
 var interactionRadius: CGFloat = 80        // Touch area
 var forceStrength: CGFloat = 25            // Repulsion
@@ -274,7 +274,7 @@ var friction: CGFloat = 0.8                // Damping
 var springStrength: CGFloat = 0.05         // Return force
 Statistics Thresholds
 In RatingManager.swift:
-swiftlet minSessionsBeforePrompt = 5            // First request
+swiftlet minSessionsBeforePrompt = 5       // First request
 let minDaysBetweenPrompts = 90             // Re-prompt interval
 let minBreathSessions = 3                  // Engagement threshold
 Color Scheme
