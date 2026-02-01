@@ -307,7 +307,7 @@ iOS 15.0+
 Xcode 14.0+
 Swift 5.7+
 Клонирование
-bashgit clone https://github.com/yourusername/equilibrium.git
+bashgit clone https://github.com/Vlad-tdk/Equilibrium.git
 cd equilibrium
 Запуск
 bashopen Equilibrium.xcodeproj

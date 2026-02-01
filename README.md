@@ -87,7 +87,7 @@ Canvas API       // High-performance rendering
 AVFoundation     // GIF animation & audio
 CoreImage        // Image processing
 UserDefaults     // Local persistence
-```
+
 
 **Zero external dependencies** — 100% native iOS code
 
@@ -221,7 +221,7 @@ Swift 5.7+
 
 Setup
 bash# Clone repository
-git clone https://github.com/yourusername/equilibrium.git
+git clone https://github.com/Vlad-tdk/Equilibrium.git
 cd equilibrium
 
 # Open project
@@ -259,7 +259,7 @@ Drag → continuous interaction
 Settings → customize 8 parameters
 Presets → Gentle, Dynamic, Fluid, Bouncy
 
-
+```
 Configuration
 Physics Parameters
 In ParticleEffectModel.swift:
@@ -294,7 +294,7 @@ Color(hex: "24243e")  // Dark blue
 - **Conditional rendering** to skip inactive elements
 
 ### Metrics
-```
+
 CPU Usage: < 30%
 FPS: 60 (stable)
 Memory: No leaks
