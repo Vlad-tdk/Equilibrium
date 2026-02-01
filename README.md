@@ -82,7 +82,7 @@ Screenshots
 
 ```
 Tech Stack
-swiftSwiftUI          // Declarative UI framework
+swiftSwiftUI     // Declarative UI framework
 Combine          // Reactive programming
 Canvas API       // High-performance rendering
 AVFoundation     // GIF animation & audio
