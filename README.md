@@ -11,7 +11,7 @@
   <strong>Modern iOS Meditation & Relaxation App</strong><br>
   Breathing Practices • Visual Meditation • Interactive Particles<br>
   <br>
-  <a href="https://apps.apple.com/rs/app/pacification">
+  <a href="https://apps.apple.com/app/id6470206215">
     <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1234567890" alt="Download on the App Store" style="width: 200px;">
   </a>
 </p>
