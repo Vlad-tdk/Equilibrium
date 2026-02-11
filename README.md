@@ -655,7 +655,7 @@ Apache-2.0 license
 
 **Project Link:** [Equilibrium on GitHub](https://github.com/Vlad-tdk/Equilibrium)
 
-**App Store:** https://apps.apple.com/rs/app/pacification/
+**App Store:** [Pacification](https://apps.apple.com/app/id6470206215)
 
 **Email:** appequilibrium@icloud.com
 
