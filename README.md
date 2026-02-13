@@ -11,7 +11,7 @@
   <strong>Modern iOS Meditation & Relaxation App</strong><br>
   Breathing Practices • Visual Meditation • Interactive Particles<br>
   <br>
-  <a href="https://apps.apple.com/rs/app/pacification">
+  <a href="https://apps.apple.com/app/id6470206215">
     <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1234567890" alt="Download on the App Store" style="width: 200px;">
   </a>
 </p>
@@ -162,26 +162,26 @@ The app is built using **MVVM (Model-View-ViewModel)** pattern with clean separa
 ```
 ┌─────────────────────────────────────────┐
 │          Presentation Layer             │
-│  ┌──────────┐  ┌──────────┐  ┌────────┐│
+│  ┌──────────┐  ┌───────────┐  ┌────────┐│
 │  │ MainView │  │ BreathView│  │ Stats  ││
 │  │          │  │           │  │ View   ││
-│  └──────────┘  └──────────┘  └────────┘│
+│  └──────────┘  └───────────┘  └────────┘│
 └─────────────────────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────┐
 │         Business Logic Layer            │
-│  ┌──────────────┐  ┌──────────────┐    │
-│  │ Statistics   │  │ Particle     │    │
-│  │ Manager      │  │ Effect Model │    │
-│  └──────────────┘  └──────────────┘    │
+│  ┌──────────────┐  ┌──────────────┐     │
+│  │ Statistics   │  │ Particle     │     │
+│  │ Manager      │  │ Effect Model │     │
+│  └──────────────┘  └──────────────┘     │
 └─────────────────────────────────────────┘
                   ↓
 ┌─────────────────────────────────────────┐
 │            Data Layer                   │
-│  ┌──────────────┐  ┌──────────────┐    │
-│  │ AppStatistics│  │ BreathSettings│   │
-│  │ (Codable)    │  │ (Codable)     │   │
-│  └──────────────┘  └──────────────┘    │
+│  ┌──────────────┐  ┌───────────────┐    │
+│  │ AppStatistics│  │ BreathSettings│    │
+│  │ (Codable)    │  │ (Codable)     │    │
+│  └──────────────┘  └───────────────┘    │
 │         UserDefaults (JSON)             │
 └─────────────────────────────────────────┘
 ```
@@ -655,7 +655,7 @@ Apache-2.0 license
 
 **Project Link:** [Equilibrium on GitHub](https://github.com/Vlad-tdk/Equilibrium)
 
-**App Store:** https://apps.apple.com/rs/app/pacification/
+**App Store:** [Pacification](https://apps.apple.com/app/id6470206215)
 
 **Email:** appequilibrium@icloud.com
 
