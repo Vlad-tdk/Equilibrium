@@ -19,7 +19,9 @@ struct FireSelectionItem: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(
-                        isSelected ? Color.orange : Color.clear,
+                        isSelected
+                        ? .fireSelectionBorder
+                        : .fireUnselectedBorder,
                         lineWidth: isSelected ? 3 : 0
                     )
             )
