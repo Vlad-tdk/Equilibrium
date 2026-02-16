@@ -32,19 +32,3 @@ extension Color {
         )
     }
 }
-
-extension Color {
-    // MARK: - Fire Meditation Colors
-    
-    // Backgrounds
-    static let fireMeditationBackground = Color("FireBackground")
-    
-    // Text
-    static let firePrimaryText = Color("FirePrimaryText")
-    static let fireSecondaryText = Color("FireSecondaryText")
-    
-    // Accents
-    static let fireGlow = Color("FireGlow")
-    
-    // Overlays
-}

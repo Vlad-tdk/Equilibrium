@@ -21,11 +21,11 @@ struct MandalaGridItem: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
                     .stroke(
-                        isSelected ? Color.purple : Color.clear,
+                        isSelected ? .selected : .unselected,
                         lineWidth: isSelected ? 3 : 0
                     )
             )
-            .shadow(color: isSelected ? .purple.opacity(0.5) : .black.opacity(0.3), radius: 8, x: 0, y: 4)
+            .shadow(color: isSelected ? .shadowSelected : .shadowUnselected, radius: 8, x: 0, y: 4)
             .scaleEffect(isSelected ? 1.05 : 1.0)
             .animation(.spring(response: 0.3, dampingFraction: 0.7), value: isSelected)
     }
