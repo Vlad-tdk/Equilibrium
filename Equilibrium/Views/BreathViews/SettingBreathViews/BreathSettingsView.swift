@@ -24,7 +24,7 @@ struct BreathSettingsView: View {
                 ScrollView {
                     VStack(spacing: 24) {
                         // Preview
-                        previewSection
+                        PreviewSection(viewModel: viewModel)
                         
                         // Timing settings
                         timingSection
@@ -33,10 +33,10 @@ struct BreathSettingsView: View {
                         circleSection
                         
                         // Color settings
-                        colorSection
+                        ColorSection(viewModel: viewModel)
                         
                         // Session settings
-                        sessionSection
+                        SessionSectionView(viewModel: viewModel)
                         
                         // Reset button
                         resetButton
@@ -73,54 +73,6 @@ struct BreathSettingsView: View {
         } message: {
             Text(L10n.BreathSettingsView.alertResetMessage)
         }
-    }
-    
-    // MARK: - Preview Section
-    private var previewSection: some View {
-        VStack(spacing: 16) {
-            Text(L10n.BreathSettingsView.preview)
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            ZStack {
-                // Animated preview
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [
-                                viewModel.circleColor.opacity(0.3),
-                                viewModel.circleColor.opacity(0)
-                            ],
-                            center: .center,
-                            startRadius: 30,
-                            endRadius: 80
-                        )
-                    )
-                    .frame(width: viewModel.circleDiameter * 0.6, height: viewModel.circleDiameter * 0.6)
-                
-                Circle()
-                    .fill(
-                        RadialGradient(
-                            colors: [
-                                viewModel.circleColor,
-                                viewModel.circleColor.opacity(0.8)
-                            ],
-                            center: .center,
-                            startRadius: 0,
-                            endRadius: 50
-                        )
-                    )
-                    .frame(width: viewModel.circleDiameter * 0.5, height: viewModel.circleDiameter * 0.5)
-                    .shadow(color: viewModel.circleColor.opacity(0.5), radius: 10, x: 0, y: 0)
-            }
-            .frame(height: 200)
-        }
-        .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.white.opacity(0.1))
-        )
     }
     
     // MARK: - Timing Section
@@ -196,76 +148,6 @@ struct BreathSettingsView: View {
                 icon: Icons.circleFill,
                 step: 10
             )
-        }
-        .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.white.opacity(0.1))
-        )
-    }
-    
-    // MARK: - Color Section
-    private var colorSection: some View {
-        VStack(spacing: 16) {
-            Text(L10n.BreathSettingsView.colorSectionTitle)
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            VStack(spacing: 12) {
-                ColorPickerRow(
-                    title: String(localized: L10n.BreathSettingsView.colorPickerTitleBackground),
-                    color: $viewModel.backgroundColor,
-                    icon: Icons.rectangle
-                )
-                
-                ColorPickerRow(
-                    title: String(localized: L10n.BreathSettingsView.colorPickerTitleCircle),
-                    color: $viewModel.circleColor,
-                    icon: Icons.circleFill
-                )
-            }
-        }
-        .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(.white.opacity(0.1))
-        )
-    }
-    
-    // MARK: - Session Section
-    private var sessionSection: some View {
-        VStack(spacing: 16) {
-            Text(L10n.BreathSettingsView.sessionTitle)
-                .font(.system(size: 18, weight: .semibold))
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            SettingSlider(
-                title: String(localized: L10n.BreathSettingsView.sessionSliderTitle),
-                value: Binding(
-                    get: { Double(viewModel.totalCycles) },
-                    set: { viewModel.totalCycles = Int($0) }
-                ),
-                range: 5...20,
-                unit: String(localized: L10n.BreathSettingsView.sessionSliderUnit),
-                icon: Icons.repeatCircleFill,
-                step: 1
-            )
-            
-            // Session duration
-            HStack {
-                Image(systemName: Icons.timer)
-                    .foregroundColor(.cyan)
-                let totalTime = Int((viewModel.inhaleTime + viewModel.holdTime * 2 + viewModel.exhaleTime) * Double(viewModel.totalCycles))
-                let minutes = totalTime / 60
-                let seconds = totalTime % 60
-                let text = L10n.BreathSettingsView.totalSession(minutes: minutes, seconds: seconds)
-                Text(text)
-                    .font(.system(size: 14, weight: .medium))
-                    .foregroundColor(.white.opacity(0.8))
-                Spacer()
-            }
         }
         .padding(20)
         .background(
