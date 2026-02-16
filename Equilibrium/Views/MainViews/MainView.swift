@@ -40,7 +40,7 @@ struct MainView: View {
             .sheet(isPresented: $showShareSheet) {
                 ShareSheet(items: [
                     "Finding peace with Equilibrium - meditation & breathing app",
-                    URL(string: "https://apps.apple.com/app/equilibrium")!
+                    URL(string: "https://apps.apple.com/app/id6470206215")!
                 ])
             }
         }
