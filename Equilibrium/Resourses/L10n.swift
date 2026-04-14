@@ -117,9 +117,9 @@ enum L10n {
             let format = NSLocalizedString("breath.total_session", comment: "")
             return String.localizedStringWithFormat(format, minutes, seconds)
         }
-        static func totalCicles(_ cicles: Int) -> String {
+        static func totalCycles(_ cycles: Int) -> String {
             let format = NSLocalizedString("breath.total_cicles", comment: "")
-            return String.localizedStringWithFormat(format, cicles)
+            return String.localizedStringWithFormat(format, cycles)
         }
     }
     
@@ -168,7 +168,7 @@ enum L10n {
         static var streakAmazing: LocalizedStringResource = "statistics.streak.amazing"
         static var streakKeepGoing: LocalizedStringResource = "statistics.streak.keep_going"
         static var streakOneWeek: LocalizedStringResource = "statistics.streak.one_week"
-        static var streakBuildingMomtntum: LocalizedStringResource = "statistics.streak.building_momtntum"
+        static var streakBuildingMomentum: LocalizedStringResource = "statistics.streak.building_momtntum"
         static var streakYoureAwesome: LocalizedStringResource = "statistics.streak.youre_on_a_roll"
         static var featuresTitle
         : LocalizedStringKey = "statistics.features.title"
@@ -216,7 +216,7 @@ enum L10n {
         static var milestoneTotalSessions: LocalizedStringResource = "statistics.features.milestone.total.sessions"
         static var milestoneTimeInvected: LocalizedStringResource = "statistics.features.milestone.time_invected"
         static var milestoneDaysActive: LocalizedStringResource = "statistics.features.milestone.days_active"
-        static var milestoneBreathCicles: LocalizedStringResource = "statistics.features.milestone.breath_cicles"
+        static var milestoneBreathCycles: LocalizedStringResource = "statistics.features.milestone.breath_cicles"
         static var resetStats: LocalizedStringKey = "statistics.features.milestone.reset_stats"
         static var periodWeek: LocalizedStringKey = "statistics.features.milestone.period.week"
         static var periodMonth: LocalizedStringKey = "statistics.features.milestone.period.month"

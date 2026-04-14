@@ -113,8 +113,8 @@ struct BreathSettingsView: View {
             HStack {
                 Image(systemName: Icons.clockFill)
                     .foregroundColor(.cyan)
-                let cicles = Int(viewModel.inhaleTime + viewModel.holdTime * 2 + viewModel.exhaleTime)
-                let text = L10n.BreathSettingsView.totalCicles(cicles)
+                let cycles = Int(viewModel.inhaleTime + viewModel.holdTime * 2 + viewModel.exhaleTime)
+                let text = L10n.BreathSettingsView.totalCycles(cycles)
                 Text(text)
                     .font(.system(size: 14, weight: .medium))
                     .foregroundColor(.white.opacity(0.8))

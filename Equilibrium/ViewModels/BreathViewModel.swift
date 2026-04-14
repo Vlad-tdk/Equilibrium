@@ -29,6 +29,7 @@ class BreathViewModel: ObservableObject {
     
     var currentCycle = 0
     private var phaseTimer: Timer?
+    private var sessionStartDate: Date?
     
     init() {
         loadSettings()
@@ -37,6 +38,7 @@ class BreathViewModel: ObservableObject {
     func startBreathing() {
         isAnimating = true
         currentCycle = 0
+        sessionStartDate = Date()
         performBreathCycle()
     }
     
@@ -51,16 +53,16 @@ class BreathViewModel: ObservableObject {
         
         // Track completed session for rating
         if currentCycle >= totalCycles {
+            let duration = sessionStartDate.map { Date().timeIntervalSince($0) } ?? 0
+            let minutes = Int(duration / 60)
             RatingManager.shared.recordBreathSessionCompleted()
-            let minutes = Int((inhaleTime + holdTime * 2 + exhaleTime) * Double(totalCycles) / 60)
-            let duration = (inhaleTime + holdTime * 2 + exhaleTime) * Double(totalCycles)
             RatingManager.shared.recordMeditationTime(minutes: minutes)
             StatisticsManager.shared.trackBreathSession(
                 duration: duration,
                 cycles: totalCycles
             )
-            print()
         }
+        sessionStartDate = nil
     }
     
     private func performBreathCycle() {

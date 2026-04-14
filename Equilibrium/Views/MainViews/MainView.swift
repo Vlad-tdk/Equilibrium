@@ -10,8 +10,8 @@ import Combine
 
 struct MainView: View {
     @StateObject private var audioPlayer = AudioPlayerManager()
-    @State private var selectedTab: Int = 0
     @State private var showShareSheet = false
+    @State private var showNotificationSettings = false
     
     var body: some View {
         NavigationView {
@@ -37,6 +37,9 @@ struct MainView: View {
                 }
             }
             .navigationBarHidden(true)
+            .sheet(isPresented: $showNotificationSettings) {
+                NotificationSettingsView()
+            }
             .sheet(isPresented: $showShareSheet) {
                 ShareSheet(items: [
                     "Finding peace with Equilibrium - meditation & breathing app",
@@ -57,6 +60,7 @@ struct MainView: View {
                         .foregroundColor(.white.opacity(0.8))
                         .padding(8)
                 }
+                .accessibilityLabel("Statistics")
                 
                 Spacer()
                 
@@ -72,15 +76,26 @@ struct MainView: View {
                 
                 Spacer()
                 
-                // Share button
-                Button(action: {
-                    showShareSheet = true
-                }) {
-                    Image(systemName: Icons.squareAndArrowUp)
+                // Menu: Share + Notifications
+                Menu {
+                    Button {
+                        showShareSheet = true
+                    } label: {
+                        Label("Share app", systemImage: Icons.squareAndArrowUp)
+                    }
+
+                    Button {
+                        showNotificationSettings = true
+                    } label: {
+                        Label("Daily reminder", systemImage: "bell.fill")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.white.opacity(0.8))
                         .padding(8)
                 }
+                .accessibilityLabel("More options")
             }
             .padding(.horizontal)
             
@@ -97,7 +112,8 @@ struct MainView: View {
                 HStack(spacing: 8) {
                     Image(systemName: audioPlayer.isPlaying ? Icons.play : Icons.pause)
                         .font(.system(size: 20))
-                    Text(audioPlayer.isPlaying ? L10n.Home.pauseMusic : L10n.Home.playMusic )
+                        .accessibilityHidden(true)
+                    Text(audioPlayer.isPlaying ? L10n.Home.pauseMusic : L10n.Home.playMusic)
                         .font(.system(size: 14, weight: .semibold))
                 }
                 .foregroundColor(.white)
@@ -112,6 +128,7 @@ struct MainView: View {
                         )
                 )
             }
+            .accessibilityLabel(audioPlayer.isPlaying ? "Pause background music" : "Play background music")
             //.padding(.top, 8)
         }
         .padding(.top, 50)

@@ -15,5 +15,6 @@ class FireMeditationViewModel: ObservableObject {
     @Published var fireScale: CGFloat = 1.0
     @Published var showTapHint = false
     
+    // Names must match GIF assets in Assets.xcassets
     let fireNames = ["fire1", "fire2", "fire3"]
 }

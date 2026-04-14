@@ -14,12 +14,17 @@ class StatisticsManager: ObservableObject {
     // MARK: - Published Stats
     @Published var stats = AppStatistics()
     
-    private let defaults = UserDefaults.standard
-    
+    private let defaults: UserDefaults
+
     // Keys
     private let statsKey = "appStatistics"
-    
-    private init() {
+
+    private convenience init() {
+        self.init(defaults: .standard)
+    }
+
+    init(defaults: UserDefaults) {
+        self.defaults = defaults
         loadStats()
     }
     
@@ -162,14 +167,26 @@ class StatisticsManager: ObservableObject {
         if let encoded = try? JSONEncoder().encode(stats) {
             defaults.set(encoded, forKey: statsKey)
         }
+        syncToWidget()
+    }
+
+    /// Writes a lightweight snapshot to the App Group so the widget can read it.
+    private func syncToWidget() {
+        let shared = AppGroup.shared
+        shared.set(stats.currentStreak,   forKey: AppGroup.WidgetKeys.currentStreak)
+        shared.set(stats.longestStreak,   forKey: AppGroup.WidgetKeys.longestStreak)
+        shared.set(getTotalSessions(),    forKey: AppGroup.WidgetKeys.totalSessions)
+        shared.set(getTotalMinutes(),     forKey: AppGroup.WidgetKeys.totalMinutes)
+        shared.set(stats.lastSessionDate, forKey: AppGroup.WidgetKeys.lastSessionDate)
     }
     
     private func loadStats() {
-        guard let data = defaults.data(forKey: statsKey),
-              let decoded = try? JSONDecoder().decode(AppStatistics.self, from: data) else {
-            return
+        guard let data = defaults.data(forKey: statsKey) else { return }
+        do {
+            stats = try JSONDecoder().decode(AppStatistics.self, from: data)
+        } catch {
+            print("StatisticsManager: failed to decode stats — \(error)")
         }
-        stats = decoded
     }
     
     // MARK: - Reset (for testing)

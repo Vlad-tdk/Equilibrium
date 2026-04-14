@@ -35,6 +35,18 @@ enum Colors {
     )
     static var shadowBreathButtonColor = Color(hex: "4A90E2").opacity(0.4)
     
+    enum Stats {
+        static var cardBackground = LinearGradient(
+            colors: [
+                Color(hex: "#e0f2fe").opacity(0.3),
+                Color(hex: "#dbeafe").opacity(0.3),
+                Color(hex: "#bfdbfe").opacity(0.3)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
     enum OnboardingGradientColors {
         static var firstScreen: [Color] = [Color(hex: "6DD4FF"), Color(hex: "4A90E2")]
         static var secondScreen: [Color] = [Color(hex: "A18CD1"), Color(hex: "FBC2EB")]

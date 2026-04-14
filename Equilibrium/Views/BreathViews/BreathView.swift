@@ -11,6 +11,7 @@ import Combine
 struct BreathView: View {
     @StateObject private var viewModel = BreathViewModel()
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     
     var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ struct BreathView: View {
                 
                 // Breathing circle
                 ZStack {
-                    // Outer glow
+                    // Outer glow (decorative)
                     Circle()
                         .fill(
                             RadialGradient(
@@ -61,8 +62,9 @@ struct BreathView: View {
                             )
                         )
                         .frame(width: viewModel.circleDiameter * 1.5, height: viewModel.circleDiameter * 1.5)
-                        .scaleEffect(viewModel.scale * 1.2)
-                    
+                        .scaleEffect(reduceMotion ? 1.0 : viewModel.scale * 1.2)
+                        .accessibilityHidden(true)
+
                     // Main circle
                     Circle()
                         .fill(
@@ -77,9 +79,10 @@ struct BreathView: View {
                             )
                         )
                         .frame(width: viewModel.circleDiameter, height: viewModel.circleDiameter)
-                        .scaleEffect(viewModel.scale)
+                        .scaleEffect(reduceMotion ? 1.0 : viewModel.scale)
                         .shadow(color: viewModel.circleColor.opacity(0.5), radius: 20, x: 0, y: 0)
-                    
+                        .accessibilityHidden(true)
+
                     // Instruction text
                     if viewModel.isAnimating {
                         VStack(spacing: 8) {
@@ -87,13 +90,20 @@ struct BreathView: View {
                                 .font(.system(size: 28, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)
                                 .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 2)
-                            
+
                             Text(L10n.BreathView.phaseTimeRemaining(viewModel.phaseTimeRemaining))
                                 .font(.system(size: 20, weight: .medium))
                                 .foregroundColor(.white.opacity(0.8))
                         }
                     }
                 }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(
+                    viewModel.isAnimating
+                        ? "\(viewModel.breathPhase), \(viewModel.phaseTimeRemaining) seconds"
+                        : "Breathing circle"
+                )
+                .accessibilityAddTraits(.updatesFrequently)
                 
                 Spacer()
                 
@@ -138,12 +148,11 @@ struct BreathView: View {
                                 .font(.system(size: 20, weight: .bold))
                                 .foregroundColor(.white)
                                 .frame(width: 200, height: 60)
-                                .background(
-                                    Colors.gradientBreathButton
-                                )
+                                .background(Colors.gradientBreathButton)
                                 .cornerRadius(30)
                                 .shadow(color: Colors.shadowBreathButtonColor, radius: 10, x: 0, y: 5)
                         }
+                        .accessibilityLabel("Start breathing session")
                         .padding(.top, 20)
                     }
                     .padding(.bottom, 50)
@@ -166,6 +175,7 @@ struct BreathView: View {
                                         .fill(.white.opacity(0.2))
                                 )
                         }
+                        .accessibilityLabel("Stop breathing session")
                     }
                     .padding(.bottom, 50)
                 }

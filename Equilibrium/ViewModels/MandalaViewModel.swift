@@ -19,19 +19,18 @@ class MandalaViewModel: ObservableObject {
         String(format: "m%02d", $0)
     }
     
-    private var rotationTimer: Timer?
-    
+    private var rotationCancellable: AnyCancellable?
+
     func startRotation() {
-        rotationTimer = Timer.scheduledTimer(
-            withTimeInterval: 0.016, repeats: true
-        ) { [weak self] _ in
-            guard let self = self else { return }
-            self.rotationAngle += .degrees(0.1)
-        }
+        rotationCancellable = Timer.publish(every: 1/60, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                self?.rotationAngle += .degrees(0.1)
+            }
     }
-    
+
     func stopRotation() {
-        rotationTimer?.invalidate()
-        rotationTimer = nil
+        rotationCancellable?.cancel()
+        rotationCancellable = nil
     }
 }

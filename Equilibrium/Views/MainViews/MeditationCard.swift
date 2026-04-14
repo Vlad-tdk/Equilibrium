@@ -15,7 +15,7 @@ struct MeditationCard: View {
     var body: some View {
         NavigationLink(destination: destinationView) {
             HStack(spacing: 16) {
-                // Icon
+                // Icon (decorative — hidden from VoiceOver)
                 ZStack {
                     Circle()
                         .fill(
@@ -28,29 +28,31 @@ struct MeditationCard: View {
                         .frame(width: 60, height: 60)
                         .shadow(color: type.gradientColors.first!.opacity(0.4),
                                 radius: 8, x: 0, y: 4)
-                    
+
                     Image(systemName: type.icon)
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundColor(.white)
                 }
-                
+                .accessibilityHidden(true)
+
                 // Text
                 VStack(alignment: .leading, spacing: 4) {
                     Text(type.title)
                         .font(.system(size: 18, weight: .bold))
                         .foregroundColor(.white)
-                    
+
                     Text(type.subtitle)
                         .font(.system(size: 14))
                         .foregroundColor(.white.opacity(0.7))
                 }
-                
+
                 Spacer()
-                
-                // Arrow
+
+                // Arrow (decorative — hidden from VoiceOver)
                 Image(systemName: Icons.rightArrow)
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundColor(.white.opacity(0.5))
+                    .accessibilityHidden(true)
             }
             .padding(20)
             .background(
@@ -63,6 +65,7 @@ struct MeditationCard: View {
                     .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 5)
             )
         }
+        .accessibilityHint(Text(type.subtitle))
         .buttonStyle(PressableCardStyle())
     }
     
@@ -87,11 +90,12 @@ struct MeditationCard: View {
 
 // MARK: - Pressable Card Style
 struct PressableCardStyle: ButtonStyle {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     var pressedScale: CGFloat = 0.97
-    
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? pressedScale : 1.0)
-            .animation(.easeOut(duration: 0.12), value: configuration.isPressed)
+            .scaleEffect(reduceMotion ? 1.0 : (configuration.isPressed ? pressedScale : 1.0))
+            .animation(reduceMotion ? nil : .easeOut(duration: 0.12), value: configuration.isPressed)
     }
 }

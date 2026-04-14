@@ -10,7 +10,8 @@ import SwiftUI
 // MARK: - Animated Gradient Background
 struct AnimatedGradientBackground: View {
     @State private var animateGradient = false
-    
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     var body: some View {
         LinearGradient(
             colors: Colors.AnimatedGradientBackgroundColor.colors,
@@ -19,6 +20,7 @@ struct AnimatedGradientBackground: View {
         )
         .ignoresSafeArea()
         .onAppear {
+            guard !reduceMotion else { return }
             withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
                 animateGradient.toggle()
             }
