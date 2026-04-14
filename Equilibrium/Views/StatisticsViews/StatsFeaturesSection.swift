@@ -25,6 +25,7 @@ struct StatsFeaturesSection: View {
                         sessions: statsManager.stats.breathSessions,
                         time: statsManager.stats.totalBreathingMinutes,
                         detail: L10n.StatisticsView.statsTotalBreathCycles(statsManager.stats.totalBreathCycles),
+                        lastDate: statsManager.stats.lastBreathDate,
                         color: .cyan
                     )
                 }
@@ -36,6 +37,7 @@ struct StatsFeaturesSection: View {
                         sessions: statsManager.stats.mandalaSessions,
                         time: statsManager.stats.totalMandalaMinutes,
                         detail: L10n.StatisticsView.mandalaDetaledViewed(statsManager.stats.totalMandalasViewed),
+                        lastDate: statsManager.stats.lastMandalaDate,
                         color: .purple
                     )
                 }
@@ -47,6 +49,7 @@ struct StatsFeaturesSection: View {
                         sessions: statsManager.stats.imagesSessions,
                         time: statsManager.stats.totalImagesMinutes,
                         detail: L10n.StatisticsView.calmingDetaledViewed(statsManager.stats.totalImagesViewed),
+                        lastDate: statsManager.stats.lastImagesDate,
                         color: .blue
                     )
                 }
@@ -58,6 +61,7 @@ struct StatsFeaturesSection: View {
                         sessions: statsManager.stats.fireSessions,
                         time: statsManager.stats.totalFireMinutes,
                         detail: nil,
+                        lastDate: statsManager.stats.lastFireDate,
                         color: .orange
                     )
                 }
@@ -69,6 +73,7 @@ struct StatsFeaturesSection: View {
                         sessions: statsManager.stats.antiStressSessions,
                         time: statsManager.stats.totalAntiStressMinutes,
                         detail: L10n.StatisticsView.antiStressDetaled(statsManager.stats.totalInteractions),
+                        lastDate: statsManager.stats.lastAntiStressDate,
                         color: Color(hex: "#11a303")
                     )
                 }
@@ -82,6 +87,7 @@ struct StatsFeaturesSection: View {
         sessions: Int,
         time: Int,
         detail: String?,
+        lastDate: Date?,
         color: Color
     ) -> some View {
         HStack(spacing: 16) {
@@ -91,9 +97,17 @@ struct StatsFeaturesSection: View {
                 .frame(width: 40)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.white)
+                HStack {
+                    Text(title)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(.white)
+                    Spacer()
+                    if let lastDate {
+                        Text(SessionRecord.relativeLabel(for: lastDate))
+                            .font(.system(size: 12))
+                            .foregroundColor(.white.opacity(0.45))
+                    }
+                }
 
                 HStack(spacing: 12) {
                     Label(String(sessions), systemImage: Icons.number)
@@ -112,7 +126,7 @@ struct StatsFeaturesSection: View {
                 }
             }
 
-            Spacer()
+            Spacer(minLength: 0)
         }
         .padding(16)
         .background(

@@ -41,40 +41,54 @@ class StatisticsManager: ObservableObject {
         stats.totalBreathingSeconds += Int(duration.truncatingRemainder(dividingBy: 60))
         stats.totalBreathCycles += cycles
         stats.lastBreathDate = Date()
-        
-        // Update streak
+        stats.appendSession(SessionRecord(date: Date(), featureType: "breath", durationSeconds: Int(duration)))
         updateStreak()
         saveStats()
     }
-    
+
     func trackMandalaSession(duration: TimeInterval, mandalasViewed: Int) {
+        guard duration > 0 else { return }
         stats.mandalaSessions += 1
         stats.totalMandalaMinutes += Int(duration / 60)
         stats.totalMandalasViewed += mandalasViewed
         stats.lastMandalaDate = Date()
+        stats.appendSession(SessionRecord(date: Date(), featureType: "mandala", durationSeconds: Int(duration)))
         saveStats()
     }
-    
+
     func trackImagesSession(duration: TimeInterval, imagesViewed: Int) {
+        guard duration > 0 else { return }
         stats.imagesSessions += 1
         stats.totalImagesMinutes += Int(duration / 60)
         stats.totalImagesViewed += imagesViewed
         stats.lastImagesDate = Date()
+        stats.appendSession(SessionRecord(date: Date(), featureType: "images", durationSeconds: Int(duration)))
         saveStats()
     }
-    
+
     func trackFireSession(duration: TimeInterval) {
+        guard duration > 0 else { return }
         stats.fireSessions += 1
         stats.totalFireMinutes += Int(duration / 60)
         stats.lastFireDate = Date()
+        stats.appendSession(SessionRecord(date: Date(), featureType: "fire", durationSeconds: Int(duration)))
         saveStats()
     }
-    
+
     func trackAntiStressSession(duration: TimeInterval, interactions: Int) {
+        guard duration > 0 else { return }
         stats.antiStressSessions += 1
         stats.totalAntiStressMinutes += Int(duration / 60)
         stats.totalInteractions += interactions
         stats.lastAntiStressDate = Date()
+        stats.appendSession(SessionRecord(date: Date(), featureType: "antiStress", durationSeconds: Int(duration)))
+        saveStats()
+    }
+
+    // MARK: - Goal
+
+    func setDailyGoal(_ minutes: Int) {
+        stats.dailyGoalMinutes = minutes
         saveStats()
     }
     

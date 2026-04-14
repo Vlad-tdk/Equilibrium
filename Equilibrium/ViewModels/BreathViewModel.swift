@@ -19,7 +19,7 @@ class BreathViewModel: ObservableObject {
     @Published var phaseTimeRemaining: Int = 0
     
     // Customizable settings
-    @Published var backgroundColor = Color(hex: "1a1a2e")
+    @Published var backgroundColor = Colors.Palette.darkBg
     @Published var circleColor = Color.white
     @Published var circleDiameter: CGFloat = 200
     @Published var inhaleTime: Double = 4.0
@@ -179,8 +179,15 @@ class BreathViewModel: ObservableObject {
         totalCycles = settings.totalCycles
     }
     
+    func applyPreset(_ preset: BreathPreset) {
+        inhaleTime = preset.inhale
+        holdTime = preset.hold
+        exhaleTime = preset.exhale
+        totalCycles = preset.cycles
+    }
+
     func resetToDefaults() {
-        backgroundColor = Color(hex: "1a1a2e")
+        backgroundColor = Colors.Palette.darkBg
         circleColor = .white
         circleDiameter = 200
         inhaleTime = 4.0

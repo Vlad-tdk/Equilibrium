@@ -54,4 +54,25 @@ struct AppStatistics: Codable {
     var currentStreak: Int = 0
     var longestStreak: Int = 0
     var lastStreakDate: Date?
+
+    // Session history (last 60 records)
+    var recentSessions: [SessionRecord] = []
+
+    // Daily goal (minutes)
+    var dailyGoalMinutes: Int = 10
+
+    // MARK: - Computed
+
+    var todayMinutes: Int {
+        recentSessions
+            .filter { Calendar.current.isDateInToday($0.date) }
+            .reduce(0) { $0 + $1.durationMinutes }
+    }
+
+    mutating func appendSession(_ record: SessionRecord) {
+        recentSessions.append(record)
+        if recentSessions.count > 60 {
+            recentSessions.removeFirst(recentSessions.count - 60)
+        }
+    }
 }

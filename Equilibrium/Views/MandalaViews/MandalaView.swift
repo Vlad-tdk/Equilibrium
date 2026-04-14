@@ -28,6 +28,7 @@ struct MandalaView: View {
                     .onAppear {
                         sessionStartTime = Date()
                         viewedMandalas.removeAll()
+                        viewedMandalas.insert(viewModel.selectedMandala)  // fix: was never populated
                     }
                     .onDisappear {
                         if let startTime = sessionStartTime {

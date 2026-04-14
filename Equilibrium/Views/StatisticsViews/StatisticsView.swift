@@ -21,7 +21,9 @@ struct StatisticsView: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
+                        StatsDailyGoalCard(statsManager: statsManager)
                         StatsOverviewSection(statsManager: statsManager)
+                        StatsActivityChart(statsManager: statsManager)
                         StatsStreakCard(statsManager: statsManager)
                         StatsFeaturesSection(statsManager: statsManager)
                         StatsMilestonesSection(statsManager: statsManager)
@@ -39,16 +41,8 @@ struct StatisticsView: View {
 
     // MARK: - Background
     private var backgroundGradient: some View {
-        LinearGradient(
-            colors: [
-                Color(hex: "4A7C9E"),
-                Color(hex: "3E7352"),
-                Color(hex: "#6bc8cb")
-            ],
-            startPoint: .topTrailing,
-            endPoint: .bottomLeading
-        )
-        .ignoresSafeArea()
+        Colors.Background.statistics
+            .ignoresSafeArea()
     }
 
     // MARK: - Header

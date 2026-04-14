@@ -16,12 +16,8 @@ struct NotificationSettingsView: View {
     var body: some View {
         ZStack {
             // Background
-            LinearGradient(
-                colors: [Color(hex: "1a1a2e"), Color(hex: "16213e"), Color(hex: "0f3460")],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            Colors.Background.night
+                .ignoresSafeArea()
 
             VStack(spacing: 0) {
                 header
@@ -79,13 +75,7 @@ struct NotificationSettingsView: View {
         HStack(spacing: 16) {
             ZStack {
                 Circle()
-                    .fill(
-                        LinearGradient(
-                            colors: [Color(hex: "6DD4FF"), Color(hex: "4A90E2")],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .fill(Colors.accentGradientDiagonal)
                     .frame(width: 48, height: 48)
                 Image(systemName: "bell.fill")
                     .font(.system(size: 22))
@@ -105,18 +95,18 @@ struct NotificationSettingsView: View {
 
             Toggle("", isOn: reminderBinding)
                 .labelsHidden()
-                .tint(Color(hex: "6DD4FF"))
+                .tint(Colors.Palette.cyan)
         }
         .padding(20)
         .background(cardBackground(cornerRadius: 20))
     }
 
     // MARK: - Time Picker Card
-    // Uses two SwiftUI Pickers (UIPickerView) instead of DatePicker (UIDatePicker)
+    // Uses +/- steppers (pure SwiftUI) instead of Picker(.wheel) / DatePicker
     // to avoid the _UIReparentingView warning inside sheets.
 
     private var timePickerCard: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 16) {
             HStack {
                 Image(systemName: "clock.fill")
                     .foregroundColor(.cyan)
@@ -124,44 +114,33 @@ struct NotificationSettingsView: View {
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundColor(.white)
                 Spacer()
-                Text(String(format: "%02d:%02d", selectedHour, selectedMinute))
-                    .font(.system(size: 17, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.cyan)
             }
 
-            HStack(spacing: 0) {
-                // Hours 00–23
-                Picker("Hour", selection: $selectedHour) {
-                    ForEach(0..<24, id: \.self) { hour in
-                        Text(String(format: "%02d", hour))
-                            .foregroundColor(.white)
-                            .tag(hour)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(maxWidth: .infinity)
-                .clipped()
+            HStack(spacing: 24) {
+                // Hours
+                TimeStepperUnit(
+                    label: "Hour",
+                    value: $selectedHour,
+                    range: 0...23,
+                    format: "%02d"
+                )
                 .onChange(of: selectedHour) { _ in syncTime() }
 
                 Text(":")
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.white.opacity(0.6))
-                    .padding(.bottom, 2)
+                    .font(.system(size: 36, weight: .bold, design: .rounded))
+                    .foregroundColor(.white.opacity(0.5))
+                    .padding(.bottom, 16)
 
-                // Minutes: every 5 min
-                Picker("Minute", selection: $selectedMinute) {
-                    ForEach(stride(from: 0, to: 60, by: 5).map { $0 }, id: \.self) { minute in
-                        Text(String(format: "%02d", minute))
-                            .foregroundColor(.white)
-                            .tag(minute)
-                    }
-                }
-                .pickerStyle(.wheel)
-                .frame(maxWidth: .infinity)
-                .clipped()
+                // Minutes (steps of 5)
+                TimeStepperUnit(
+                    label: "Min",
+                    value: $selectedMinute,
+                    range: 0...55,
+                    step: 5,
+                    format: "%02d"
+                )
                 .onChange(of: selectedMinute) { _ in syncTime() }
             }
-            .frame(height: 150)
         }
         .padding(20)
         .background(cardBackground(cornerRadius: 20))
@@ -199,7 +178,7 @@ struct NotificationSettingsView: View {
                 manager.openSystemSettings()
             }
             .font(.system(size: 13, weight: .semibold))
-            .foregroundColor(Color(hex: "6DD4FF"))
+            .foregroundColor(Colors.Palette.cyan)
         }
         .padding(16)
         .background(
@@ -258,6 +237,52 @@ struct NotificationSettingsView: View {
     private func cardBackground(cornerRadius: CGFloat) -> some View {
         RoundedRectangle(cornerRadius: cornerRadius)
             .fill(Colors.Stats.cardBackground)
+    }
+}
+
+// MARK: - Time Stepper Unit
+
+private struct TimeStepperUnit: View {
+    let label: String
+    @Binding var value: Int
+    let range: ClosedRange<Int>
+    var step: Int = 1
+    let format: String
+
+    var body: some View {
+        VStack(spacing: 6) {
+            Button {
+                let next = value + step
+                value = next > range.upperBound ? range.lowerBound : next
+            } label: {
+                Image(systemName: "chevron.up")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.cyan)
+                    .frame(width: 44, height: 36)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.08)))
+            }
+
+            Text(String(format: format, value))
+                .font(.system(size: 36, weight: .bold, design: .rounded))
+                .foregroundColor(.white)
+                .frame(width: 72)
+                .multilineTextAlignment(.center)
+
+            Button {
+                let prev = value - step
+                value = prev < range.lowerBound ? range.upperBound : prev
+            } label: {
+                Image(systemName: "chevron.down")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.cyan)
+                    .frame(width: 44, height: 36)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.08)))
+            }
+
+            Text(label)
+                .font(.system(size: 12))
+                .foregroundColor(.white.opacity(0.45))
+        }
     }
 }
 

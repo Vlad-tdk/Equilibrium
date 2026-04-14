@@ -35,15 +35,7 @@ struct LaunchScreenView: View {
     
     // MARK: - Background
     private var backgroundGradient: some View {
-        LinearGradient(
-            colors: [
-                Color(hex: "0f0c29"),
-                Color(hex: "302b63"),
-                Color(hex: "24243e")
-            ],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
+        Colors.Background.cosmos
     }
     
     // MARK: - Floating Particles
@@ -94,13 +86,7 @@ struct LaunchScreenView: View {
             
             // Main circle
             Circle()
-                .fill(
-                    LinearGradient(
-                        colors: [Color(hex: "6DD4FF"), Color(hex: "4A90E2")],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
+                .fill(Colors.accentGradientDiagonal)
                 .frame(width: 120, height: 120)
                 .shadow(color: .cyan.opacity(0.5), radius: 20, x: 0, y: 10)
             

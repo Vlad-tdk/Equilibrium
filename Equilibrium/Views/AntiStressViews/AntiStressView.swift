@@ -18,17 +18,8 @@ struct AntiStressView: View {
     
     var body: some View {
         ZStack {
-            // Gradient background instead of plain black
-            LinearGradient(
-                colors: [
-                    Color(hex: "0f0c29"),
-                    Color(hex: "302b63"),
-                    Color(hex: "24243e")
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            Colors.Background.cosmos
+                .ignoresSafeArea()
             
             GeometryReader { geometry in
                 ParticleCanvas(
@@ -145,12 +136,8 @@ struct AntiStressView: View {
         }
         .padding(.top)
         .background(
-            LinearGradient(
-                colors: [Color.black.opacity(0.5), Color.clear],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea(edges: .top)
+            Colors.Background.topBarFade
+                .ignoresSafeArea(edges: .top)
         )
     }
     

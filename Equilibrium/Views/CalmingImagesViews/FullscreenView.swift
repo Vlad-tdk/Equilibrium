@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FullscreenView: View {
     @ObservedObject var viewModel: CalmingImagesViewModel
+    @StateObject private var favorites = FavoritesManager.shared
+
     var body: some View {
         ZStack {
             TabView(selection: $viewModel.selectedIndex) {
@@ -21,7 +23,7 @@ struct FullscreenView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .automatic))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
-            
+
             VStack {
                 HStack {
                     Button(action: {
@@ -36,10 +38,21 @@ struct FullscreenView: View {
                             .background(Circle().fill(.backgroundButton))
                     }
                     .padding()
-                    
+
                     Spacer()
+
+                    Button {
+                        favorites.toggleImage(viewModel.selectedIndex)
+                    } label: {
+                        Image(systemName: favorites.isFavoriteImage(viewModel.selectedIndex) ? "heart.fill" : "heart")
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(favorites.isFavoriteImage(viewModel.selectedIndex) ? .red : .white)
+                            .padding(12)
+                            .background(Circle().fill(.black.opacity(0.35)))
+                    }
+                    .padding()
                 }
-                
+
                 Spacer()
             }
         }

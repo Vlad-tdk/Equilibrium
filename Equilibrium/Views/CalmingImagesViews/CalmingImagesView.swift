@@ -29,6 +29,10 @@ struct CalmingImagesView: View {
         .onAppear {
             sessionStartTime = Date()
             viewedImages.removeAll()
+            viewedImages.insert(viewModel.selectedIndex)  // fix: track initial image
+        }
+        .onChange(of: viewModel.selectedIndex) { index in
+            viewedImages.insert(index)  // fix: track each swipe
         }
         .onDisappear {
             if let startTime = sessionStartTime {

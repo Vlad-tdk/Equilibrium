@@ -25,7 +25,10 @@ struct BreathSettingsView: View {
                     VStack(spacing: 24) {
                         // Preview
                         PreviewSection(viewModel: viewModel)
-                        
+
+                        // Presets
+                        BreathPresetsSection(viewModel: viewModel)
+
                         // Timing settings
                         timingSection
                         
